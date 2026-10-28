@@ -23,6 +23,13 @@
   veil.setAttribute("aria-hidden", "true");
   document.body.prepend(veil);
   const zoneTopEl = document.getElementById("hizmetler"), zoneEndEl = document.getElementById("sss");
+  // Ay-yıldız anında ekranda çapraz büyük yazı (süs: aria-hidden, 3D yoksa hiç görünmez)
+  const ayKatman = document.createElement("div");
+  ayKatman.className = "ay-katman";
+  ayKatman.setAttribute("aria-hidden", "true");
+  ayKatman.innerHTML = "<span class=\"ay-yazi\">Türkiye'de 1 Numarayız</span>";
+  document.body.appendChild(ayKatman);
+  const seoGeoEl = document.getElementById("seo-geo");
   let zoneTop = 0, zoneBottom = 0;
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "low-power" });
@@ -126,6 +133,35 @@
   const glowMat = new THREE.SpriteMaterial({ map: dot, color: 0xed8b00, transparent: true, depthWrite: false });
   const glow = new THREE.Sprite(glowMat);
   mark.add(glow);
+
+  /* ---------- Ay-yıldız: hero ile SEO/GEO sınırında halka ay'a, küp yıldıza dönüşür (Feyzullah'ın isteği) ----------
+     Oranlar Türk Bayrağı Kanunu'ndaki ölçülerden: dış daire r=1, iç daire r=0.8 ve merkezi 0.25 kayık,
+     yıldızın çevrel dairesi r=0.5, merkezi dış dairenin merkezinden 1.683 uzakta; bir ucu aya bakar.
+     Ay'ın açık tarafı logodaki C'nin boşluğu gibi sağ üste (45°) döner, yıldız küpün yerine gelir. */
+  const flagMat = new THREE.MeshPhysicalMaterial({
+    color: 0xffffff, metalness: 0.2, roughness: 0.3, clearcoat: 1, transparent: true, opacity: 0,
+    emissive: 0xffffff, emissiveIntensity: 0.15,
+  });
+  const crescentShape = new THREE.Shape();
+  {
+    const d = 0.25, r2 = 0.8, ix = (d * d + 1 - r2 * r2) / (2 * d), iy = Math.sqrt(1 - ix * ix);
+    const outerA = Math.atan2(iy, ix), innerA = Math.atan2(iy, ix - d);
+    crescentShape.absarc(0, 0, 1, outerA, Math.PI * 2 - outerA, false);
+    crescentShape.absarc(d, 0, r2, -innerA, innerA, true);
+  }
+  const starShape = new THREE.Shape();
+  for (let i = 0; i < 10; i++) {
+    const a = Math.PI + (i * Math.PI) / 5; // ilk uç aya (sola) bakar
+    const rr = i % 2 ? 0.5 * 0.382 : 0.5;
+    const px = 1.683 + Math.cos(a) * rr, py = Math.sin(a) * rr;
+    if (i === 0) starShape.moveTo(px, py); else starShape.lineTo(px, py);
+  }
+  const flagGeo = new THREE.ExtrudeGeometry([crescentShape, starShape], { depth: 0.16, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.025, bevelSegments: 3, curveSegments: 64 });
+  flagGeo.translate(0, 0, -0.08);
+  const flag = new THREE.Mesh(flagGeo, flagMat);
+  flag.rotation.z = Math.PI / 4;
+  flag.visible = false;
+  mark.add(flag);
 
   /* ---------- Yörüngeler: logonun etrafında ince, eğik çemberler + üzerinde gezen noktalar ---------- */
   const orbits = new THREE.Group();
@@ -471,20 +507,36 @@
       [ptsMat, glowMat, ...satMats, trailMat].forEach((m) => { m.blending = blend; m.needsUpdate = true; });
     }
 
-    ringMat.opacity = cur.mesh;
-    ring.visible = cur.mesh > 0.02;
-    ring.scale.setScalar(0.85 + 0.15 * cur.mesh);
+    // Ay-yıldız anı: SEO/GEO bölümünün üst kenarı ekranın ~%45'indeyken tam, ±%22 ekran boyu içinde yumuşak geçiş
+    let ay = 0;
+    if (seoGeoEl) {
+      const r = seoGeoEl.getBoundingClientRect().top / vh;
+      ay = 1 - smooth(Math.min(1, Math.abs(r - 0.45) / 0.22));
+    }
+    flag.visible = ay > 0.01;
+    flagMat.opacity = ay;
+    flagMat.color.set(isDark ? 0xffffff : 0xe30a17);
+    flagMat.emissive.set(isDark ? 0xffffff : 0xe30a17);
+    flag.scale.setScalar(0.6 + 0.4 * ay);
+    flag.rotation.z = Math.PI / 4 + (1 - ay) * 0.8;
+    ayKatman.style.opacity = ay.toFixed(3);
+    ayKatman.style.setProperty("--ay", ay.toFixed(3));
+
+    ringMat.opacity = cur.mesh * (1 - ay);
+    ring.visible = cur.mesh * (1 - ay) > 0.02;
+    ring.scale.setScalar((0.85 + 0.15 * cur.mesh) * (1 - 0.3 * ay));
 
     // Küp: yerindeyken halkanın boşluğunda hafifçe süzülür ve nabız gibi parlar, ayrılınca merkezde döner
     cube.position.lerpVectors(CENTER, DOCK, cur.dock);
     cube.position.y += Math.sin(time * 1.6) * 0.04 * cur.dock;
     cube.rotation.set(time * 0.3 * (1 - cur.dock) + 0.2, time * 0.5, 0);
-    cube.scale.setScalar(0.8 + 0.2 * cur.dock);
+    cube.scale.setScalar((0.8 + 0.2 * cur.dock) * (1 - ay));
+    cube.visible = ay < 0.99;
     const blink = Math.pow(0.5 + 0.5 * Math.sin(time * 2.4), 4);
     cubeMat.emissiveIntensity = 0.15 + blink * 0.4 * cur.dock;
     glow.position.set(cube.position.x, cube.position.y, -0.2);
     glow.scale.setScalar(0.9 + blink * 0.35);
-    glowMat.opacity = (isDark ? 0.55 : 0.3) * (0.6 + 0.4 * blink) * cur.dock;
+    glowMat.opacity = (isDark ? 0.55 : 0.3) * (0.6 + 0.4 * blink) * cur.dock * (1 - ay);
 
     // Yörüngeler: noktalar döner, kaydırdıkça düzlemler eğilir
     const sp = scrollProgress();

@@ -224,6 +224,14 @@ a { color: inherit; }
   opacity: 0; transition: opacity 1.4s var(--ease);
 }
 .has-3d .scene { opacity: 1; }
+/* Ay-yıldız anındaki çapraz yazı (scene.js oluşturur ve saydamlığını kaydırmaya göre ayarlar) */
+.ay-katman { position: fixed; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; opacity: 0;
+  display: grid; place-items: center; }
+.ay-yazi { font-family: var(--font-display); font-weight: 700; font-size: clamp(38px, 8.5vw, 136px); line-height: 1;
+  letter-spacing: -0.03em; white-space: nowrap; color: #fff;
+  transform: rotate(-14deg) scale(calc(0.9 + 0.1 * var(--ay, 0)));
+  text-shadow: 0 4px 30px rgba(0, 8, 60, 0.55), 0 0 2px rgba(0, 8, 60, 0.4); }
+:root[data-theme="light"] .ay-yazi { color: #e30a17; text-shadow: 0 2px 20px rgba(255, 255, 255, 0.8); }
 @media (max-width: 760px) { .has-3d .scene { opacity: 0.8; } }
 
 .site-header, main, .site-footer { position: relative; z-index: 1; }

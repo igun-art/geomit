@@ -325,10 +325,11 @@
   const STATES = [
     { x: 0.8, y: 0.48, s: 0.55, shape: 0, mesh: 1, pts: 0, dock: 1, orb: 1, trail: 1 },        // hero: kartın sağ üst köşesinde
     { x: -0.64, y: 0.05, s: 0.6, shape: 0, mesh: 1, pts: 0.2, dock: 1, orb: 0.6, trail: 0 },  // SEO / GEO
-    { x: 0, y: 0, s: 1.2, shape: 1, mesh: 0, pts: 0.85, dock: 0, orb: 0.25, trail: 0 },       // hizmetler
-    { x: 0.58, y: 0, s: 1.0, shape: 2, mesh: 0, pts: 1, dock: 0, orb: 0.55, trail: 0 },       // süreç
-    { x: -0.6, y: 0.05, s: 0.9, shape: 2, mesh: 0, pts: 0.8, dock: 0, orb: 0.3, trail: 0 },   // ilkeler
-    { x: 0.62, y: 0, s: 0.85, shape: 1, mesh: 0, pts: 0.55, dock: 0, orb: 0.2, trail: 0 },    // SSS
+    // Hizmetler → SSS beyaz bölgede: halka (mavi) her yerde görünür, metnin arkasında kaldığı için yarı saydam
+    { x: 0, y: 0, s: 1.2, shape: 1, mesh: 0.4, pts: 0.85, dock: 0, orb: 0.25, trail: 0 },     // hizmetler
+    { x: 0.58, y: 0, s: 1.0, shape: 2, mesh: 0.4, pts: 1, dock: 0, orb: 0.55, trail: 0 },     // süreç
+    { x: -0.6, y: 0.05, s: 0.9, shape: 2, mesh: 0.4, pts: 0.8, dock: 0, orb: 0.3, trail: 0 }, // ilkeler
+    { x: 0.62, y: 0, s: 0.85, shape: 1, mesh: 0.4, pts: 0.55, dock: 0, orb: 0.2, trail: 0 },  // SSS
     { x: 0.79, y: 0.14, s: 0.5, shape: 0, mesh: 1, pts: 0.12, dock: 1, orb: 0.9, trail: 0 },  // iletişim
   ];
   const KEYS = Object.keys(STATES[0]);

@@ -129,7 +129,10 @@
   --shadow: 0 30px 80px -30px rgba(0, 17, 119, 0.35);
   color: var(--fg);
   background: var(--veil);
+  border-block-color: transparent; /* beyaz bölgede bantların ince çizgileri yok */
 }
+/* SEO/GEO bandının alt çizgisi beyaz bölgenin hemen üstünde ince beyaz çizgi bırakıyordu */
+:root:not([data-theme="light"]):not([data-palette="lacivert"]) #seo-geo { border-bottom-color: transparent; }
 :root:not([data-theme="light"]):not([data-palette="lacivert"]) #hizmetler {
   /* Beyaz, "Hizmetler" başlığının ~1 cm (40px) üstünde başlar. Üstteki boşluk, bir önceki bantla (SEO/GEO) aynı koyu
      mavide kalır (açık mavi şerit göz yoruyordu); 26px'lik kısa geçişle tam beyaz */

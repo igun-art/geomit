@@ -106,11 +106,15 @@
   --shadow: 0 30px 80px -30px rgba(0, 8, 60, 0.7);
   --3d-ink: #ffffff;
   --3d-orbit: #cfe0ff;
+  --3d-veil: 1;         /* scene.js: beyaz bölgede logoyu maviye çevirir */
+  --3d-veil-ink: #1d4fd8;
 }
 
 /* Kobalt Şafak "beyaz bölge" (deneme, 28 Ekim 2026): Hizmetler'den SSS'nin sonuna kadar zemin yarı saydam beyaza döner,
    yazılar koyu laciverte geçer. Hero ve İletişim + footer mavi kalır. Geçişler bölümlerin üst/alt boşluğunda olur (yazının
-   arkasında ara ton kalmasın diye). Geri almak için bu blok ve aşağıdaki iki kural silinir. */
+   arkasında ara ton kalmasın diye). Geri almak için bu blok ve aşağıdaki kurallar (.veil-layer dahil) silinir.
+   3D sahne açıkken beyaz, bölümlerin değil 3D'nin ARKASINDAKİ .veil-layer katmanından gelir (scene.js konumlar);
+   böylece logo beyazın önünde çizilir ve orada maviye döner. 3D yoksa bölümler beyazı kendisi boyar. */
 :root:not([data-theme="light"]):not([data-palette="lacivert"]) :is(#hizmetler, #surec, #ilkeler, #sss) {
   --veil: rgba(244, 248, 255, 0.78);
   --fg: #0d1a45;
@@ -127,11 +131,20 @@
   background: var(--veil);
 }
 :root:not([data-theme="light"]):not([data-palette="lacivert"]) #hizmetler {
-  /* Beyaz, "Hizmetler" başlığının ~1 cm (40px) üstünde başlar: üst boşluk mavi kalır, 26px'lik kısa geçişle tam beyaz */
-  background: linear-gradient(to bottom, rgba(244, 248, 255, 0) calc(clamp(72px, 10vw, 136px) - 40px), var(--veil) calc(clamp(72px, 10vw, 136px) - 14px));
+  /* Beyaz, "Hizmetler" başlığının ~1 cm (40px) üstünde başlar. Üstteki boşluk, bir önceki bantla (SEO/GEO) aynı koyu
+     mavide kalır (açık mavi şerit göz yoruyordu); 26px'lik kısa geçişle tam beyaz */
+  background: linear-gradient(to bottom, rgba(0, 17, 119, 0.28) calc(clamp(72px, 10vw, 136px) - 40px), var(--veil) calc(clamp(72px, 10vw, 136px) - 14px));
 }
 :root:not([data-theme="light"]):not([data-palette="lacivert"]) #sss {
   background: linear-gradient(to bottom, var(--veil) calc(100% - clamp(72px, 10vw, 136px)), rgba(244, 248, 255, 0));
+}
+:root.has-3d:not([data-theme="light"]):not([data-palette="lacivert"]) :is(#hizmetler, #surec, #ilkeler, #sss) { background: none; }
+.veil-layer { display: none; position: absolute; left: 0; right: 0; z-index: 0; pointer-events: none; }
+:root.has-3d:not([data-theme="light"]):not([data-palette="lacivert"]) .veil-layer {
+  display: block;
+  background: linear-gradient(to bottom,
+    rgba(0, 17, 119, 0.28) calc(clamp(72px, 10vw, 136px) - 40px), rgba(244, 248, 255, 0.78) calc(clamp(72px, 10vw, 136px) - 14px),
+    rgba(244, 248, 255, 0.78) calc(100% - clamp(72px, 10vw, 136px)), rgba(244, 248, 255, 0) 100%);
 }
 
 *, *::before, *::after { box-sizing: border-box; }

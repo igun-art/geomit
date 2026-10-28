@@ -17,6 +17,13 @@
   canvas.className = "scene";
   canvas.setAttribute("aria-hidden", "true");
   document.body.prepend(canvas);
+  // Beyaz bölge katmanı (Hizmetler → SSS): tuvalin arkasında durur, logo beyazın önünde çizilir (bkz. style.css)
+  const veil = document.createElement("div");
+  veil.className = "veil-layer";
+  veil.setAttribute("aria-hidden", "true");
+  document.body.prepend(veil);
+  const zoneTopEl = document.getElementById("hizmetler"), zoneEndEl = document.getElementById("sss");
+  let zoneTop = 0, zoneBottom = 0;
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "low-power" });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -335,6 +342,15 @@
       const r = el.getBoundingClientRect();
       return Math.max(0, r.top + window.scrollY + r.height / 2 - vh / 2);
     });
+    if (zoneTopEl && zoneEndEl) {
+      const top = zoneTopEl.getBoundingClientRect().top + window.scrollY;
+      const bottom = zoneEndEl.getBoundingClientRect().bottom + window.scrollY;
+      veil.style.top = top + "px";
+      veil.style.height = bottom - top + "px";
+      // Logonun renk değiştireceği sınırlar: beyazın tamamlandığı yer (üst) ve alt geçişin ortası
+      zoneTop = top + parseFloat(getComputedStyle(zoneTopEl).paddingTop) - 14;
+      zoneBottom = bottom - parseFloat(getComputedStyle(zoneEndEl).paddingBottom) / 2;
+    }
   }
   const smooth = (t) => t * t * (3 - 2 * t);
 
@@ -375,14 +391,21 @@
 
   /* ---------- Tema renkleri CSS değişkenlerinden ---------- */
   let isDark = true;
+  let veilOn = false, veilMode = false;
+  const inkBase = new THREE.Color(), inkVeil = new THREE.Color(), orbitBase = new THREE.Color(), orbitVeil = new THREE.Color("#2c4a9a");
   function applyTheme() {
     const cs = getComputedStyle(root);
     isDark = cs.getPropertyValue("--3d-dark").trim() === "1";
-    ringMat.color.set(cs.getPropertyValue("--3d-ink").trim() || "#ece4d0");
+    inkBase.set(cs.getPropertyValue("--3d-ink").trim() || "#ece4d0");
+    ringMat.color.copy(inkBase);
+    veilOn = cs.getPropertyValue("--3d-veil").trim() === "1";
+    inkVeil.set(cs.getPropertyValue("--3d-veil-ink").trim() || "#1d4fd8");
+    veilMode = false;
     ringMat.metalness = isDark ? 0.65 : 0.15;
     ringMat.roughness = isDark ? 0.26 : 0.4;
     ptsMat.uniforms.uColor.value.set(cs.getPropertyValue("--3d-particle").trim() || "#ed8b00");
-    orbitMat.color.set(cs.getPropertyValue("--3d-orbit").trim() || "#9fb4ff");
+    orbitBase.set(cs.getPropertyValue("--3d-orbit").trim() || "#9fb4ff");
+    orbitMat.color.copy(orbitBase);
     const blend = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
     [ptsMat, glowMat, ...satMats, trailMat, rainMat].forEach((m) => { m.blending = blend; m.needsUpdate = true; });
     // Kod yağmuru: koyuda buz mavisi + beyaz baş, açıkta lacivert; metnin arkasında kaldığı için soluk
@@ -405,6 +428,8 @@
     measure();
   }
   window.addEventListener("resize", resize);
+  // SSS açılıp kapanınca sayfa uzar/kısalır: beyaz katman ve bölüm noktaları yeniden ölçülür
+  if ("ResizeObserver" in window) new ResizeObserver(() => measure()).observe(document.querySelector("main"));
   // Yazı tipleri ve görseller yüklenince bölüm konumları değişebilir
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   resize();
@@ -429,6 +454,21 @@
 
     // Logo kameraya dönük kalır, hafifçe salınır
     mark.rotation.set(0.18 + Math.sin(time * 0.5) * 0.08, Math.sin(time * 0.4) * 0.35 - 0.2, 0);
+
+    // Beyaz bölge: logo oraya girince beyazdan maviye döner; ekranın ortası bölgedeyken toplamalı (additive) karışım
+    // beyazda görünmez olacağı için parçacıklar, parıltı ve rakamlar normal karışıma geçer. Kod yağmuru toplamalı kalır (beyazda kaybolur).
+    const vh = window.innerHeight, zt = zoneTop - window.scrollY, zb = zoneBottom - window.scrollY;
+    const inZone = (y) => (veilOn ? smooth(Math.min(1, Math.max(0, (y - zt) / 80))) * (1 - smooth(Math.min(1, Math.max(0, (y - zb + 80) / 80)))) : 0);
+    const fRing = inZone(vh / 2 - (cur.y * vh) / 2);
+    const fView = inZone(vh / 2);
+    ringMat.color.copy(inkBase).lerp(inkVeil, fRing);
+    ringMat.metalness = (isDark ? 0.65 : 0.15) - 0.3 * fRing;
+    orbitMat.color.copy(orbitBase).lerp(orbitVeil, fRing);
+    if (isDark && (fView > 0.5) !== veilMode) {
+      veilMode = fView > 0.5;
+      const blend = veilMode ? THREE.NormalBlending : THREE.AdditiveBlending;
+      [ptsMat, glowMat, ...satMats, trailMat].forEach((m) => { m.blending = blend; m.needsUpdate = true; });
+    }
 
     ringMat.opacity = cur.mesh;
     ring.visible = cur.mesh > 0.02;
@@ -480,7 +520,7 @@
     spin += dt * 0.15;
     const shapeMix = Math.min(cur.shape, 1);
     points.rotation.set(mark.rotation.x, mark.rotation.y + spin * shapeMix, mark.rotation.z);
-    ptsMat.uniforms.uOpacity.value = cur.pts * 0.5; // metnin arkasında kaldığı için soluk
+    ptsMat.uniforms.uOpacity.value = cur.pts * 0.5 * (1 - 0.7 * fView); // metnin arkasında kaldığı için soluk; beyazda (metnin hemen arkasında) çok daha soluk
     points.visible = cur.pts > 0.01;
 
     renderer.render(scene, camera);

@@ -566,6 +566,8 @@ nav { margin-left: auto; }
 .site-footer { border-top: 1px solid var(--line); padding-block: 32px; color: var(--muted); font-size: 0.9rem; background: var(--bg); }
 .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px 24px; }
 .footer-logo { color: var(--fg); font-size: 1.1rem; }
+.footer-link { color: var(--fg); text-underline-offset: 3px; }
+.footer-link:hover { color: var(--orange-text); }
 
 /* Kaydırınca beliren bölümler (sadece JS ve hareket açıkken; main.js "motion" sınıfını ekler) */
 .motion [data-reveal] {

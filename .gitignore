@@ -9,3 +9,4 @@ logo/
 # Geçici: geomit.net DNS kayıtları GitHub'a bağlanana kadar CNAME depoya gitmez
 # (yoksa github.io linki henüz çalışmayan geomit.net'e yönlenir). DNS bağlanınca bu satırı sil.
 CNAME
+video/

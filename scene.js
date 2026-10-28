@@ -519,7 +519,7 @@
     flagMat.emissive.set(isDark ? 0xffffff : 0xe30a17);
     flag.scale.setScalar(0.6 + 0.4 * ay);
     flag.rotation.z = Math.PI / 4 + (1 - ay) * 0.8;
-    ayKatman.style.opacity = ay.toFixed(3);
+    ayKatman.style.opacity = (ay * 0.85).toFixed(3); // sayfanın yumuşak diline uysun: hiçbir anda tam parlak değil
     ayKatman.style.setProperty("--ay", ay.toFixed(3));
 
     ringMat.opacity = cur.mesh * (1 - ay);

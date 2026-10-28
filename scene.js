@@ -29,6 +29,7 @@
   ayKatman.setAttribute("aria-hidden", "true");
   ayKatman.innerHTML = "<span class=\"ay-yazi\">Türkiye'de 1 Numarayız</span>";
   document.body.appendChild(ayKatman);
+  const ayYazi = ayKatman.firstChild;
   const seoGeoEl = document.getElementById("seo-geo");
   let zoneTop = 0, zoneBottom = 0;
 
@@ -521,6 +522,17 @@
     flag.rotation.z = Math.PI / 4 + (1 - ay) * 0.8;
     ayKatman.style.opacity = (ay * 0.85).toFixed(3); // sayfanın yumuşak diline uysun: hiçbir anda tam parlak değil
     ayKatman.style.setProperty("--ay", ay.toFixed(3));
+    if (ay > 0.01) {
+      // Yazı logoyla üst üste binmesin: yıldızın sağına, onun hizasından yukarı doğru; sağda yer yoksa (telefon) logonun üstüne
+      const vw = root.clientWidth, R = (vh / (2 * halfH)) * cur.s; // logonun 1 birimi kaç piksel
+      const lx = vw / 2 + (cur.x * vw) / 2, ly = vh / 2 - (cur.y * vh) / 2;
+      const tw = ayYazi.offsetWidth, th = ayYazi.offsetHeight;
+      let left = lx + 2.0 * R, bottom = ly - 0.7 * R;
+      if (left + tw > vw - 16) { left = Math.max(16, Math.min(lx - tw / 2, vw - 16 - tw)); bottom = ly - 2.3 * R; }
+      bottom = Math.max(bottom, 80 + th + tw * 0.18); // döndürülmüş yazının sağ ucu menünün altında kalsın
+      ayYazi.style.left = left.toFixed(1) + "px";
+      ayYazi.style.top = bottom.toFixed(1) + "px";
+    }
 
     ringMat.opacity = cur.mesh * (1 - ay);
     ring.visible = cur.mesh * (1 - ay) > 0.02;

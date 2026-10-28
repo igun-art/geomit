@@ -177,7 +177,7 @@
     if (!(test.getContext("webgl2") || test.getContext("webgl"))) return;
     // Modül değil klasik betik: file:// ile açılınca da yüklenir (hatalar scene.js içinde yakalanır)
     var s = document.createElement("script");
-    s.src = "scene.js";
+    s.src = "scene.js?v=20261029b"; // ?v: güncellemeden sonra tarayıcı eski dosyayı kullanmasın (index.html'deki sürümle aynı tutulur)
     document.body.appendChild(s);
   }
   function whenIdle(fn) {

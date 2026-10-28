@@ -108,6 +108,31 @@
   --3d-orbit: #cfe0ff;
 }
 
+/* Kobalt Şafak "beyaz bölge" (deneme, 28 Ekim 2026): Hizmetler'den SSS'nin sonuna kadar zemin yarı saydam beyaza döner,
+   yazılar koyu laciverte geçer. Hero ve İletişim + footer mavi kalır. Geçişler bölümlerin üst/alt boşluğunda olur (yazının
+   arkasında ara ton kalmasın diye). Geri almak için bu blok ve aşağıdaki iki kural silinir. */
+:root:not([data-theme="light"]):not([data-palette="lacivert"]) :is(#hizmetler, #surec, #ilkeler, #sss) {
+  --veil: rgba(244, 248, 255, 0.78);
+  --fg: #0d1a45;
+  --muted: #3a4570;
+  --line: rgba(13, 26, 69, 0.14);
+  --line-strong: rgba(13, 26, 69, 0.28);
+  --band: transparent;
+  --surface: #ffffff;
+  --glass: rgba(255, 255, 255, 0.66);
+  --orange-text: #7a3d00; /* açık zeminde küçük turuncu yazı: ~5.9 kontrast */
+  --grid-line: rgba(13, 26, 69, 0.06);
+  --shadow: 0 30px 80px -30px rgba(0, 17, 119, 0.35);
+  color: var(--fg);
+  background: var(--veil);
+}
+:root:not([data-theme="light"]):not([data-palette="lacivert"]) #hizmetler {
+  background: linear-gradient(to bottom, rgba(244, 248, 255, 0), var(--veil) clamp(72px, 10vw, 136px));
+}
+:root:not([data-theme="light"]):not([data-palette="lacivert"]) #sss {
+  background: linear-gradient(to bottom, var(--veil) calc(100% - clamp(72px, 10vw, 136px)), rgba(244, 248, 255, 0));
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }

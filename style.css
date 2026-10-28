@@ -231,6 +231,7 @@ a { color: inherit; }
   position: absolute; left: 0; top: 0; transform-origin: left bottom;
   transform: translateY(-100%) rotate(-10deg) scale(calc(0.96 + 0.04 * var(--ay, 0)));
   text-shadow: 0 2px 24px rgba(0, 8, 60, 0.35); }
+.ay-alt { display: block; font-size: 0.6em; margin-top: 0.2em; }
 :root[data-theme="light"] .ay-yazi { color: #e30a17; text-shadow: 0 2px 20px rgba(255, 255, 255, 0.8); }
 @media (max-width: 760px) { .has-3d .scene { opacity: 0.8; } }
 

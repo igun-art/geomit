@@ -30,6 +30,15 @@
   ayKatman.innerHTML = "<span class=\"ay-yazi\">Türkiye'de 1 Numarayız</span>";
   document.body.appendChild(ayKatman);
   const ayYazi = ayKatman.firstChild;
+  // 29 Ekim'e özel alt satır: ziyaretçinin kendi takvimine göre yalnızca 29 Ekim günü görünür (30 Ekim'de kendiliğinden yok)
+  const bugun = new Date();
+  let ayAlt = null;
+  if (bugun.getMonth() === 9 && bugun.getDate() === 29) {
+    ayAlt = document.createElement("span");
+    ayAlt.className = "ay-alt";
+    ayAlt.textContent = "29 Ekim Kutlu Olsun";
+    ayYazi.appendChild(ayAlt);
+  }
   const seoGeoEl = document.getElementById("seo-geo");
   let zoneTop = 0, zoneBottom = 0;
 
@@ -527,7 +536,7 @@
       const vw = root.clientWidth, R = (vh / (2 * halfH)) * cur.s; // logonun 1 birimi kaç piksel
       const lx = vw / 2 + (cur.x * vw) / 2, ly = vh / 2 - (cur.y * vh) / 2;
       const tw = ayYazi.offsetWidth, th = ayYazi.offsetHeight;
-      let left = lx + 2.0 * R, bottom = ly + 0.2 * R;
+      let left = lx + 2.0 * R, bottom = ly + 0.2 * R + (ayAlt ? ayAlt.offsetHeight : 0); // alt satır varsa ilk satır yerinde kalsın
       if (left + tw > vw - 16) { left = Math.max(16, Math.min(lx - tw / 2, vw - 16 - tw)); bottom = ly - 2.3 * R; }
       bottom = Math.max(bottom, 80 + th + tw * 0.18); // döndürülmüş yazının sağ ucu menünün altında kalsın
       ayYazi.style.left = left.toFixed(1) + "px";

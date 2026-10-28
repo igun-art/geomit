@@ -127,8 +127,8 @@
   background: var(--veil);
 }
 :root:not([data-theme="light"]):not([data-palette="lacivert"]) #hizmetler {
-  /* Beyaz, "Hizmetler" başlığının hemen üstünde başlar: üst boşluk mavi kalır, başlıktan 24px önce kısa bir geçişle tam beyaz */
-  background: linear-gradient(to bottom, rgba(244, 248, 255, 0) calc(clamp(72px, 10vw, 136px) - 72px), var(--veil) calc(clamp(72px, 10vw, 136px) - 24px));
+  /* Beyaz, "Hizmetler" başlığının ~1 cm (40px) üstünde başlar: üst boşluk mavi kalır, 26px'lik kısa geçişle tam beyaz */
+  background: linear-gradient(to bottom, rgba(244, 248, 255, 0) calc(clamp(72px, 10vw, 136px) - 40px), var(--veil) calc(clamp(72px, 10vw, 136px) - 14px));
 }
 :root:not([data-theme="light"]):not([data-palette="lacivert"]) #sss {
   background: linear-gradient(to bottom, var(--veil) calc(100% - clamp(72px, 10vw, 136px)), rgba(244, 248, 255, 0));

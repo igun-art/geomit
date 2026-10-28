@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>geomit | SEO ve GEO: Google'da ve yapay zekada bulunun</title>
+<meta name="description" content="geomit, işletmenizin Google'da ve ChatGPT, Gemini, Perplexity gibi yapay zeka asistanlarının cevaplarında bulunabilmesi için SEO ve GEO çalışması yapar.">
+<link rel="canonical" href="https://geomit.net/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#001177">
+
+<!-- Sosyal medyada paylaşım önizlemesi -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="geomit">
+<meta property="og:title" content="geomit | SEO ve GEO hizmeti">
+<meta property="og:description" content="Müşterileriniz artık yapay zekaya soruyor. Cevapta siz de var mısınız?">
+<meta property="og:url" content="https://geomit.net/">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+
+<!-- Kayıtlı tema tercihini sayfa çizilmeden uygula (yanıp sönmeyi önler) -->
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add("js");
+    try {
+      var t = localStorage.getItem("gm-theme");
+      if (t === "light" || t === "dark") d.setAttribute("data-theme", t);
+    } catch (e) {}
+    // Varsayılan palet "Kobalt Şafak" (mavi degrade); eski "Gece Lacivert" adresin sonuna ?palet=lacivert ekleyince
+    if (/[?&]palet=lacivert(&|$)/.test(location.search)) d.setAttribute("data-palette", "lacivert");
+  })();
+</script>
+<!-- 3D sahne için Three.js (sürüm sabit). Sayfa yüklendikten sonra, sadece hareket açıksa yüklenir. -->
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.min.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+} }
+</script>
+<script src="main.js" defer></script>
+
+<!-- Yapılandırılmış veri: Google ve yapay zeka motorları işletmeyi bundan tanır.
+     İletişim bilgileri değişirse burayı da güncelle. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://geomit.net/#isletme",
+      "name": "geomit",
+      "url": "https://geomit.net/",
+      "logo": "https://geomit.net/favicon.svg",
+      "description": "İşletmelerin Google'da ve yapay zeka asistanlarının (ChatGPT, Gemini, Perplexity, Google AI Overviews) cevaplarında görünür olması için SEO ve GEO (Generative Engine Optimization) hizmeti.",
+      "email": "merhaba@geomit.net",
+      "telephone": "+905000000000",
+      "areaServed": { "@type": "Country", "name": "Türkiye" },
+      "knowsLanguage": "tr",
+      "sameAs": ["https://www.instagram.com/geomit"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "SEO ve GEO hizmetleri",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yapay zeka görünürlük denetimi" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Teknik SEO ve yapılandırılmış veri" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soru-cevap içerikleri" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Video ile görünürlük" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yerel görünürlük ve Google İşletme Profili" } }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://geomit.net/#site",
+      "url": "https://geomit.net/",
+      "name": "geomit",
+      "inLanguage": "tr-TR",
+      "publisher": { "@id": "https://geomit.net/#isletme" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "GEO nedir?",
+          "acceptedAnswer": { "@type": "Answer", "text": "GEO (Generative Engine Optimization), işletmenizin ChatGPT, Gemini, Perplexity ve Google AI Overviews gibi yapay zeka asistanlarının verdiği cevaplarda adının geçmesi ve kaynak gösterilmesi için yapılan çalışmadır." } },
+        { "@type": "Question", "name": "SEO bitti mi, artık sadece GEO mu yapmak gerekiyor?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Hayır. Google hâlâ sitelere en çok ziyaretçi gönderen kaynak ve yapay zeka cevapları da büyük ölçüde iyi sıralanan, iyi yapılandırılmış sayfalardan beslenir. GEO, sağlam bir SEO temelinin üstüne kurulur." } },
+        { "@type": "Question", "name": "Ne zaman sonuç alırım?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Teknik düzeltmeler birkaç hafta içinde taranır. İçerik ve dış bahsedilmelerin etkisi genellikle 2 ile 6 ay arasında görünür. İlk ölçümü çalışmanın başında, karşılaştırmayı 6-8. haftada yaparız." } },
+        { "@type": "Question", "name": "Yapay zekada çıkacağınızı garanti ediyor musunuz?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Hayır. Yapay zeka asistanları aynı soruya her seferinde farklı cevap verebilir ve kimse sonucu garanti edemez. Biz aynı soruları düzenli olarak sorup sonucu ölçer, önce ve sonra tablosuyla raporlarız." } },
+        { "@type": "Question", "name": "Sitem ikas, Shopify, Ticimax veya WordPress üzerinde. Çalışabilir misiniz?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Evet. Hazır platformlarda düzenlemeleri platformun yönetim paneli ve eklentileri üzerinden yaparız. Sitenin kodu sizdeyse doğrudan kod üzerinde çalışırız." } },
+        { "@type": "Question", "name": "Hangi işletmeler için uygun?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Müşterisi internette araştırma yapan her işletme için: e-ticaret siteleri, yerel hizmet işletmeleri, klinikler, ajanslar ve üreticiler. Sadece yerel müşteriye satan işletmelerde önceliği Google Haritalar ve İşletme Profili'ne veririz." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="#" aria-label="geomit ana sayfa">
+      <svg class="logo-mark" viewBox="2.8 5.2 40 40" width="30" height="30" aria-hidden="true"><path d="M35.79 23.57A14 14 0 1 1 24.43 12.21" fill="none" stroke="currentColor" stroke-width="6"/><rect x="31.6" y="7.4" width="9" height="9" rx="1.2" fill="var(--orange)"/></svg>
+      <span class="logo-word">geomit<span class="logo-dot" aria-hidden="true"></span></span>
+    </a>
+    <nav aria-label="Ana menü">
+      <ul class="nav">
+        <li><a href="#hizmetler">Hizmetler</a></li>
+        <li><a href="#surec">Süreç</a></li>
+        <li><a href="#sss">SSS</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" type="button" hidden aria-label="Temayı değiştir">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    </button>
+    <a class="btn btn-small" href="#iletisim">Teklif iste</a>
+  </div>
+</header>
+
+<nav class="dots" aria-label="Bölümler">
+  <ol>
+    <li><a href="#giris"><span>Giriş</span></a></li>
+    <li><a href="#seo-geo"><span>SEO ve GEO</span></a></li>
+    <li><a href="#hizmetler"><span>Hizmetler</span></a></li>
+    <li><a href="#surec"><span>Süreç</span></a></li>
+    <li><a href="#ilkeler"><span>Nasıl çalışırız</span></a></li>
+    <li><a href="#sss"><span>Sık sorulan sorular</span></a></li>
+    <li><a href="#iletisim"><span>Teklif isteyin</span></a></li>
+  </ol>
+</nav>
+<main id="icerik">
+
+  <!-- HERO -->
+  <section id="giris" class="hero">
+    <!-- SEO/GEO bölümünün başlığı burada görünür; o bölümde aynı metin ekran okuyucular için h2 olarak durur -->
+    <div class="wrap"><p class="hero-top" data-reveal>SEO ve GEO aynı işin iki yarısı</p></div>
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow" data-reveal><span class="eyebrow-dot" aria-hidden="true"></span>SEO + GEO hizmeti</p>
+        <h1 data-reveal>Müşterileriniz artık yapay zekaya soruyor. <span class="h1-q">Cevapta siz&nbsp;de var mısınız?</span></h1>
+        <p class="lead" data-reveal>geomit, işletmenizin Google'da ve ChatGPT, Gemini, Perplexity gibi yapay zeka asistanlarının cevaplarında bulunabilmesi için çalışır. Önce bugün nerede durduğunuzu ölçeriz, sonra eksikleri kapatırız.</p>
+        <div class="cta-row" data-reveal>
+          <a class="btn" href="#iletisim">Teklif iste
+            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10h11m-4-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="btn btn-ghost" href="#surec">Nasıl çalışıyoruz</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- 3D sahne yüklenemezse (JS kapalı, hareket azaltılmış) görünen sabit logo -->
+        <svg class="hero-mark" viewBox="2.8 5.2 40 40" aria-hidden="true"><path d="M35.79 23.57A14 14 0 1 1 24.43 12.21" fill="none" stroke="currentColor" stroke-width="6"/><rect x="31.6" y="7.4" width="9" height="9" rx="1.2" fill="var(--orange)"/></svg>
+
+        <figure class="chat" data-reveal aria-label="Temsili örnek: yapay zeka asistanının bir işletmeyi kaynak göstererek önermesi">
+          <div class="chat-bar">
+            <span class="chat-live" aria-hidden="true"></span>
+            <span aria-hidden="true">Temsili örnek</span>
+            <button class="chat-replay" type="button" hidden>Tekrar oynat</button>
+          </div>
+          <div class="chat-q">
+            <span class="chat-who">Müşteri</span>
+            <p>En iyi akıllı telefon modellerini en ucuz fiyatlar ve avantajlı kampanya seçenekleriyle, Türkiye genelinde güvenle nereden/nasıl satın alabilirim?</p>
+          </div>
+          <div class="chat-typing" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="chat-a">
+            <span class="chat-who">Yapay zeka asistanı</span>
+            <p>Fiyat kadar satıcının güvenilirliği de önemli: faturalı, Türkiye distribütörü güvenceli cihaz seçin. Öne çıkan seçeneklerden biri <span class="keep"><mark>Örnek Teknoloji</mark><sup class="cite">1</sup>.</span> Güncel kampanyaları ve taksit seçeneklerini tek sayfada karşılaştırıyor, Türkiye geneline kargo <span class="keep">gönderiyor<sup class="cite">2</sup>.</span></p>
+            <ul class="sources">
+              <li><span class="cite">1</span> ornekteknoloji.com/kampanyalar</li>
+              <li><span class="cite">2</span> ornekteknoloji.com/teslimat</li>
+            </ul>
+          </div>
+          <figcaption>Temsili örnek. Hedefimiz: sizin işletmenizin bu cevapta kaynak olarak geçmesi.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO / GEO FARKI -->
+  <section id="seo-geo" class="band">
+    <div class="wrap">
+      <h2 class="sr-only">SEO ve GEO aynı işin iki yarısı</h2>
+      <div class="compare">
+        <div class="compare-col" data-reveal>
+          <h3>SEO</h3>
+          <p class="compare-q">Google'da arayan sizi bulabiliyor mu?</p>
+          <p>Sitenizin Google sonuçlarında üst sıralarda çıkması. Teknik altyapı, hız, doğru başlıklar ve aranan kelimelere cevap veren sayfalar.</p>
+        </div>
+        <div class="compare-col" data-reveal>
+          <h3>GEO</h3>
+          <p class="compare-q">Yapay zekaya soran sizin adınızı duyuyor mu?</p>
+          <p>ChatGPT, Gemini, Perplexity ve Google AI Overviews cevap verirken sizi önermesi ve sitenizi kaynak göstermesi. Net bilgi, yapılandırılmış veri ve başka sitelerde adınızın geçmesi.</p>
+        </div>
+      </div>
+      <p class="note" data-reveal>Yapay zeka cevapları büyük ölçüde iyi sıralanan, iyi yapılandırılmış sayfalardan beslenir. Bu yüzden ikisini birlikte yürütürüz.</p>
+    </div>
+  </section>
+
+  <!-- HİZMETLER -->
+  <section id="hizmetler">
+    <div class="wrap">
+      <h2 data-reveal>Hizmetler</h2>
+      <div class="services">
+        <article class="service" data-reveal>
+          <h3>Yapay zeka görünürlük denetimi</h3>
+          <p>Müşterilerinizin soracağı soruları ChatGPT, Gemini, Perplexity ve Google AI Mode'a sorarız. Kimin önerildiğini, hangi sitelerin kaynak gösterildiğini ve sizin nerede durduğunuzu tabloyla raporlarız.</p>
+          <p class="service-tag">Tek seferlik · Her çalışmanın başlangıcı</p>
+        </article>
+        <article class="service" data-reveal>
+          <h3>Teknik SEO ve yapılandırılmış veri</h3>
+          <p>Site haritası, robots.txt, Search Console kurulumu, hız ve taranabilirlik. Ürün, işletme ve SSS için schema işaretlemesi; arama motorları ve yapay zeka sitenizi böyle doğru okur.</p>
+          <p class="service-tag">Kurulum + aylık takip</p>
+        </article>
+        <article class="service" data-reveal>
+          <h3>Soru-cevap içerikleri</h3>
+          <p>Müşterilerinizin gerçekten sorduğu sorulara cevap veren sayfa ve yazılar. Yapay zekanın alıntılayabileceği kadar net, insanların okuyacağı kadar sade.</p>
+          <p class="service-tag">Aylık</p>
+        </article>
+        <article class="service" data-reveal>
+          <h3>Video ile görünürlük</h3>
+          <p>Yapay zeka asistanları YouTube videolarını sık kaynak gösterir. Ürününüzü ve uzmanlığınızı anlatan videoları, aramada bulunacak şekilde başlık, açıklama ve bölümleriyle hazırlarız.</p>
+          <p class="service-tag">Aylık · Sosyal medya içeriğiyle birlikte</p>
+        </article>
+        <article class="service" data-reveal>
+          <h3>Yerel görünürlük</h3>
+          <p>Google İşletme Profili, Haritalar, sektör rehberleri ve adres, telefon, çalışma saati bilgilerinin her yerde tutarlı olması. Yerel müşteriye satan işletmeler için en hızlı kazanç burada.</p>
+          <p class="service-tag">Kurulum + aylık takip</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SÜREÇ -->
+  <section id="surec" class="band">
+    <div class="wrap">
+      <h2 data-reveal>Süreç</h2>
+      <ol class="steps" data-reveal>
+        <li>
+          <span class="step-time">1. hafta</span>
+          <h3>Ölçüm</h3>
+          <p>Sektörünüzde müşterilerin soracağı 10-15 soruyu belirler, yapay zeka asistanlarına sorarız. Bu sizin başlangıç fotoğrafınız olur.</p>
+        </li>
+        <li>
+          <span class="step-time">1-2. hafta</span>
+          <h3>Analiz</h3>
+          <p>Rakipleriniz neden öneriliyor, müşterileriniz neyi soruyor, sitenizde hangi cevap eksik.</p>
+        </li>
+        <li>
+          <span class="step-time">2. hafta</span>
+          <h3>Teknik temel</h3>
+          <p>Site haritası, yapay zeka tarayıcılarına erişim, schema işaretlemesi ve Search Console.</p>
+        </li>
+        <li>
+          <span class="step-time">3-8. hafta</span>
+          <h3>İçerik ve dış bahsedilmeler</h3>
+          <p>Soru-cevap sayfaları, videolar, İşletme Profili ve sektör sitelerinde adınızın geçmesi.</p>
+        </li>
+        <li>
+          <span class="step-time">6-8. hafta</span>
+          <h3>Yeniden ölçüm</h3>
+          <p>İlk haftadaki soruları aynen tekrar sorar, önce ve sonra tablosunu sizinle paylaşırız.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- İLKELER -->
+  <section id="ilkeler" class="principles-section">
+    <div class="wrap">
+      <h2 data-reveal>Nasıl çalışırız</h2>
+      <div class="principles">
+        <div data-reveal>
+          <h3>Garanti değil, ölçüm</h3>
+          <p>Yapay zeka aynı soruya her seferinde farklı cevap verebilir. "Kesin çıkarırız" diyen yanıltır. Biz ölçer, raporlarız.</p>
+        </div>
+        <div data-reveal>
+          <h3>Gösterişli dosya değil, işe yarayan iş</h3>
+          <p>Etkisi kanıtlanmamış teknik numaralar yerine müşterinizin sorusuna gerçekten cevap veren içerik ve doğru altyapı.</p>
+        </div>
+        <div data-reveal>
+          <h3>İçerik ve video aynı elden</h3>
+          <p>Sosyal medya, video ve arama görünürlüğü aynı ekipten çıktığı için mesajınız her yerde tutarlı kalır.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SSS -->
+  <section id="sss" class="band">
+    <div class="wrap faq-wrap">
+      <h2 data-reveal>Sık sorulan sorular</h2>
+      <div class="faq" data-reveal>
+        <details>
+          <summary>GEO nedir?</summary>
+          <p>GEO (Generative Engine Optimization), işletmenizin ChatGPT, Gemini, Perplexity ve Google AI Overviews gibi yapay zeka asistanlarının verdiği cevaplarda adının geçmesi ve kaynak gösterilmesi için yapılan çalışmadır.</p>
+        </details>
+        <details>
+          <summary>SEO bitti mi, artık sadece GEO mu yapmak gerekiyor?</summary>
+          <p>Hayır. Google hâlâ sitelere en çok ziyaretçi gönderen kaynak ve yapay zeka cevapları da büyük ölçüde iyi sıralanan, iyi yapılandırılmış sayfalardan beslenir. GEO, sağlam bir SEO temelinin üstüne kurulur.</p>
+        </details>
+        <details>
+          <summary>Ne zaman sonuç alırım?</summary>
+          <p>Teknik düzeltmeler birkaç hafta içinde taranır. İçerik ve dış bahsedilmelerin etkisi genellikle 2 ile 6 ay arasında görünür. İlk ölçümü çalışmanın başında, karşılaştırmayı 6-8. haftada yaparız.</p>
+        </details>
+        <details>
+          <summary>Yapay zekada çıkacağınızı garanti ediyor musunuz?</summary>
+          <p>Hayır. Yapay zeka asistanları aynı soruya her seferinde farklı cevap verebilir ve kimse sonucu garanti edemez. Biz aynı soruları düzenli olarak sorup sonucu ölçer, önce ve sonra tablosuyla raporlarız.</p>
+        </details>
+        <details>
+          <summary>Sitem ikas, Shopify, Ticimax veya WordPress üzerinde. Çalışabilir misiniz?</summary>
+          <p>Evet. Hazır platformlarda düzenlemeleri platformun yönetim paneli ve eklentileri üzerinden yaparız. Sitenin kodu sizdeyse doğrudan kod üzerinde çalışırız.</p>
+        </details>
+        <details>
+          <summary>Hangi işletmeler için uygun?</summary>
+          <p>Müşterisi internette araştırma yapan her işletme için: e-ticaret siteleri, yerel hizmet işletmeleri, klinikler, ajanslar ve üreticiler. Sadece yerel müşteriye satan işletmelerde önceliği Google Haritalar ve İşletme Profili'ne veririz.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <section id="iletisim" class="contact-section">
+    <div class="wrap contact">
+      <div class="contact-text" data-reveal>
+        <h2>Teklif isteyin</h2>
+        <p class="lead">Sitenizin adresini ve sektörünüzü yazın. Size ne yapılabileceğini ve nereden başlamak gerektiğini anlatalım.</p>
+      </div>
+      <ul class="contact-list" data-reveal>
+        <!-- DOLDUR: numaraları ve adresleri gerçek bilgilerle değiştir (schema bölümündekiler dahil) -->
+        <li><a class="contact-item" href="https://wa.me/905000000000?text=Merhaba%2C%20geomit%20i%C3%A7in%20teklif%20almak%20istiyorum." target="_blank" rel="noopener"><span class="contact-label">WhatsApp</span><span class="contact-value">+90 500 000 00 00</span><svg class="contact-arrow" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6 14 14 6m-6 0h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li><a class="contact-item" href="tel:+905000000000"><span class="contact-label">Telefon</span><span class="contact-value">+90 500 000 00 00</span><svg class="contact-arrow" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6 14 14 6m-6 0h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li><a class="contact-item" href="mailto:merhaba@geomit.net"><span class="contact-label">E-posta</span><span class="contact-value">merhaba@geomit.net</span><svg class="contact-arrow" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6 14 14 6m-6 0h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li><a class="contact-item" href="https://www.instagram.com/geomit" target="_blank" rel="noopener"><span class="contact-label">Instagram</span><span class="contact-value">@geomit</span><svg class="contact-arrow" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6 14 14 6m-6 0h6v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <span class="logo-word footer-logo">geomit<span class="logo-dot" aria-hidden="true"></span></span>
+    <span>© 2026 geomit</span>
+    <span>SEO ve GEO hizmeti · Türkiye</span>
+  </div>
+</footer>
+
+</body>
+</html>

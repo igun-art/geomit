@@ -1,0 +1,14 @@
+# geomit
+
+> geomit, Türkiye'deki işletmelerin Google'da ve yapay zeka asistanlarının (ChatGPT, Gemini, Perplexity, Google AI Overviews) cevaplarında görünür olması için SEO ve GEO hizmeti verir.
+
+## Hizmetler
+- Yapay zeka görünürlük denetimi: müşterilerin soracağı sorular yapay zeka asistanlarına sorulur, kimin önerildiği ve hangi kaynakların gösterildiği raporlanır.
+- Teknik SEO ve yapılandırılmış veri: site haritası, robots.txt, Search Console, schema işaretlemesi.
+- Soru-cevap içerikleri: müşterilerin gerçekten sorduğu sorulara cevap veren sayfalar.
+- Video ile görünürlük: aramada bulunacak şekilde hazırlanmış YouTube ve sosyal medya videoları.
+- Yerel görünürlük: Google İşletme Profili, Haritalar ve işletme bilgilerinin tutarlılığı.
+
+## İletişim
+- Web: https://geomit.net/
+- E-posta: merhaba@geomit.net

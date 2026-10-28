@@ -527,7 +527,7 @@
       const vw = root.clientWidth, R = (vh / (2 * halfH)) * cur.s; // logonun 1 birimi kaç piksel
       const lx = vw / 2 + (cur.x * vw) / 2, ly = vh / 2 - (cur.y * vh) / 2;
       const tw = ayYazi.offsetWidth, th = ayYazi.offsetHeight;
-      let left = lx + 2.0 * R, bottom = ly - 0.7 * R;
+      let left = lx + 2.0 * R, bottom = ly - 0.25 * R;
       if (left + tw > vw - 16) { left = Math.max(16, Math.min(lx - tw / 2, vw - 16 - tw)); bottom = ly - 2.3 * R; }
       bottom = Math.max(bottom, 80 + th + tw * 0.18); // döndürülmüş yazının sağ ucu menünün altında kalsın
       ayYazi.style.left = left.toFixed(1) + "px";

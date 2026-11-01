@@ -5,6 +5,7 @@ NOTLAR.md
 context/
 logo/
 araclar/
+api/veri/
 *.zip
 
 # Geçici: geomit.net DNS kayıtları GitHub'a bağlanana kadar CNAME depoya gitmez

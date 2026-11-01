@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>llms.txt nedir, işe yarar mı? | geomit</title>
+<meta name="description" content="llms.txt, yapay zeka araçlarına sitenizi özetleyen bir metin dosyası önerisidir. Resmi standart değil, görünürlüğe etkisi de kanıtlanmış değil.">
+<link rel="canonical" href="https://geomit.net/blog/llms-txt-nedir/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#001177">
+
+<!-- Sosyal medyada paylaşım önizlemesi -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="geomit">
+<meta property="og:title" content="llms.txt nedir, işe yarar mı? | geomit">
+<meta property="og:description" content="llms.txt, yapay zeka araçlarına sitenizi özetleyen bir metin dosyası önerisidir. Resmi standart değil, görünürlüğe etkisi de kanıtlanmış değil.">
+<meta property="og:url" content="https://geomit.net/blog/llms-txt-nedir/">
+
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=20261101c">
+
+<!-- Kayıtlı tema tercihini sayfa çizilmeden uygula (yanıp sönmeyi önler) -->
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add("js");
+    try {
+      var t = localStorage.getItem("gm-theme");
+      if (t === "light" || t === "dark") d.setAttribute("data-theme", t);
+    } catch (e) {}
+    // Varsayılan palet "Kobalt Şafak" (mavi degrade); eski "Gece Lacivert" adresin sonuna ?palet=lacivert ekleyince
+    if (/[?&]palet=lacivert(&|$)/.test(location.search)) d.setAttribute("data-palette", "lacivert");
+  })();
+</script>
+<script src="../../main.js?v=20261101c" defer></script>
+
+<!-- Yapılandırılmış veri. SSS metni değişirse FAQPage'i de aynı metinle güncelle. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://geomit.net/blog/llms-txt-nedir/#yazi",
+      "headline": "llms.txt nedir, işe yarar mı?",
+      "description": "llms.txt, yapay zeka araçlarına sitenizi özetleyen bir metin dosyası önerisidir. Resmi standart değil, görünürlüğe etkisi de kanıtlanmış değil.",
+      "url": "https://geomit.net/blog/llms-txt-nedir/",
+      "mainEntityOfPage": "https://geomit.net/blog/llms-txt-nedir/",
+      "datePublished": "2026-10-30",
+      "dateModified": "2026-10-30",
+      "inLanguage": "tr-TR",
+      "author": {
+        "@type": "Person",
+        "@id": "https://geomit.net/hakkimizda/#feyzullah-buran",
+        "name": "Feyzullah Buran"
+      },
+      "publisher": {
+        "@id": "https://geomit.net/#isletme"
+      },
+      "isPartOf": {
+        "@id": "https://geomit.net/blog/#blog"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana sayfa",
+          "item": "https://geomit.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://geomit.net/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "llms.txt nedir, işe yarar mı?",
+          "item": "https://geomit.net/blog/llms-txt-nedir/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<!-- ortak:ust -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="../../" aria-label="geomit ana sayfa">
+      <svg class="logo-mark" viewBox="2.8 5.2 40 40" width="30" height="30" aria-hidden="true"><path d="M35.79 23.57A14 14 0 1 1 24.43 12.21" fill="none" stroke="currentColor" stroke-width="6"/><rect x="31.6" y="7.4" width="9" height="9" rx="1.2" fill="var(--orange)"/></svg>
+      <span class="logo-word">geomit<span class="logo-dot" aria-hidden="true"></span></span>
+    </a>
+    <nav aria-label="Ana menü">
+      <ul class="nav">
+        <li><a href="../../#hizmetler">Hizmetler</a></li>
+        <li><a href="../../#surec">Süreç</a></li>
+        <li><a href="../../#sss">SSS</a></li>
+        <li><a href="../../hakkimizda/">Hakkımızda</a></li>
+        <li><a href="../../blog/" aria-current="page">Blog</a></li>
+        <li><a href="../../musteri-yorumlari/">Müşteri Yorumları</a></li>
+        <li><a href="../../musteri-hizmetleri/">Müşteri Hizmetleri</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" type="button" hidden aria-label="Temayı değiştir">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    </button>
+    <a class="btn btn-small" href="../../#iletisim">Teklif iste</a>
+  </div>
+</header>
+<!-- /ortak:ust -->
+
+<main id="icerik">
+
+  <section class="hero">
+    <div class="wrap">
+      <article class="yazi">
+        <nav class="crumbs" aria-label="Sayfa yolu"><a href="../../">Ana sayfa</a> / <a href="../">Blog</a> / <span aria-current="page">llms.txt nedir, işe yarar mı?</span></nav>
+        <h1>llms.txt nedir, işe yarar mı?</h1>
+        <p class="yazi-bilgi"><a href="../../hakkimizda/">Feyzullah Buran</a> · <time datetime="2026-10-30">30 Ekim 2026</time></p>
+        <p class="lead">llms.txt, sitenizin kökünde durabilen ve yapay zeka araçlarına önemli sayfalarınızı Markdown biçiminde özetleyen bir metin dosyasıdır. Jeremy Howard'ın Eylül 2024'te ortaya attığı bir öneri, resmi bir standart sayılmıyor. Görünürlüğe etkisi bugün için kanıtlanmış değil.</p>
+
+        <p>Yeni bir dosya adı çıktı mı piyasa hemen hareketleniyor, bir bakmışsınız "bunu kurmazsanız geride kalırsınız" cümleleri dolaşıyor. llms.txt de biraz öyle oldu. Dosyaya ne olduğu kadar ne olmadığı açısından da bakmak lazım.</p>
+
+        <h2>Dosyanın içinde ne var?</h2>
+        <p><a href="https://llmstxt.org/" target="_blank" rel="noopener">llmstxt.org</a> sayfasındaki öneriye göre en üstte bir başlık olarak sitenin adı, altında kısa bir özet, sonra başlıklar altında bağlantı listeleri duruyor. Kısaltılmış haliyle bizim dosyamız şöyle:</p>
+        <pre><code># geomit
+
+&gt; geomit, Türkiye'deki işletmelerin Google'da ve yapay zeka
+&gt; asistanlarının cevaplarında görünür olması için hizmet verir.
+
+## Blog
+- GEO nedir?: https://geomit.net/blog/geo-nedir/</code></pre>
+
+        <h2>robots.txt ve site haritasından farkı ne?</h2>
+        <p>robots.txt tarayıcıya nereye girebileceğini söylüyor, sitemap.xml arama motoruna sayfa listesini veriyor. llms.txt ise bir araç o anda bilgi ararken ona kısa yol gösterme fikri üzerine kurulu. Öneriyi yazan kişi de bunun eğitimden çok cevap üretme anında işe yarayacağını düşünmüş.</p>
+
+        <h2>Google ne diyor?</h2>
+        <p>Google'ın <a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener">yapay zeka özellikleri belgesi</a> açık: AI Overviews ve AI Mode için yapay zekaya özel metin dosyası ya da makinenin okuyacağı yeni bir dosya oluşturmanız gerekmiyor. Yani Google tarafında bu dosyanın size kazandıracağı bir şey yok.</p>
+        <p>Diğer asistanlara gelince, benim bildiğim kadarıyla büyük şirketlerden hiçbiri "bu dosyayı okuyorum, görünürlüğünüzü artırıyor" diye bir söz vermiş değil. İleride değişir mi, bilemem. Bu alanda altı ay sonrasını söylemek çok zor.</p>
+
+        <h2>Peki biz niye koyduk?</h2>
+        <p>geomit.net'te llms.txt var. Küçük bir iş, kimseye zararı yok ve hizmetlerimizi, iletişim bilgilerimizi tek bir düz metinde toplu tutuyor. Biz bunu küçük bir sigorta gibi görüyoruz, ondan sonuç beklemiyoruz.</p>
+        <p>Size "llms.txt kurduk, artık ChatGPT'de çıkacaksınız" diyen biri olursa inanmayın. Sıraya koyacaksanız önce sitenizin taranabilmesi, sonra sayfalarda net cevap olması, sonra dışarıda adınızın geçmesi gelir. llms.txt bu listenin en sonunda durmalı.</p>
+
+        <h2>Kaynaklar</h2>
+        <ul class="yazi-kaynak">
+          <li><a href="https://llmstxt.org/" target="_blank" rel="noopener">llms.txt önerisi (llmstxt.org)</a></li>
+          <li><a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener">Google Search Central: AI features and your website</a></li>
+        </ul>
+
+        <div class="yazi-cta">
+          <p>Yapay zeka asistanlarında bugün nerede durduğunuzu birlikte ölçelim.</p>
+          <div class="cta-row">
+            <a class="btn" href="../../#iletisim">Teklif iste
+              <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10h11m-4-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="btn btn-ghost" href="../../#hizmetler">Hizmetlerimiz</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<!-- ortak:alt -->
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <span class="logo-word footer-logo">geomit<span class="logo-dot" aria-hidden="true"></span></span>
+    <span>© 2026 geomit</span>
+    <span>GEO ve SEO hizmeti · Türkiye</span>
+    <span><a class="footer-link" href="../../hakkimizda/">Hakkımızda</a> · <a class="footer-link" href="../../blog/" aria-current="page">Blog</a> · <a class="footer-link" href="../../musteri-yorumlari/">Müşteri Yorumları</a> · <a class="footer-link" href="../../musteri-hizmetleri/">Müşteri Hizmetleri</a></span>
+    <span>Bu bir <a class="footer-link" href="https://www.hdbilisim.com/" rel="noopener">HD Bilişim</a> iştirakidir.</span>
+  </div>
+</footer>
+<!-- /ortak:alt -->
+
+</body>
+</html>

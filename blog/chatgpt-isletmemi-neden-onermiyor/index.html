@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="../../style.css?v=20261101b">
+<link rel="stylesheet" href="../../style.css?v=20261101c">
 
 <!-- Kayıtlı tema tercihini sayfa çizilmeden uygula (yanıp sönmeyi önler) -->
 <script>
@@ -36,7 +36,7 @@
     if (/[?&]palet=lacivert(&|$)/.test(location.search)) d.setAttribute("data-palette", "lacivert");
   })();
 </script>
-<script src="../../main.js?v=20261101b" defer></script>
+<script src="../../main.js?v=20261101c" defer></script>
 
 <!-- Yapılandırılmış veri. SSS metni değişirse FAQPage'i de aynı metinle güncelle. -->
 <script type="application/ld+json">
@@ -50,8 +50,8 @@
       "description": "ChatGPT'nin işletmenizi önermemesinin en sık nedenleri: sitenize ulaşamaması, sitede net cevap olmaması, başka sitelerde adınızın geçmemesi ve tek denemeye bakılması.",
       "url": "https://geomit.net/blog/chatgpt-isletmemi-neden-onermiyor/",
       "mainEntityOfPage": "https://geomit.net/blog/chatgpt-isletmemi-neden-onermiyor/",
-      "datePublished": "2026-11-01",
-      "dateModified": "2026-11-01",
+      "datePublished": "2026-10-29",
+      "dateModified": "2026-10-29",
       "inLanguage": "tr-TR",
       "author": {
         "@type": "Person",
@@ -96,7 +96,7 @@
           "name": "ChatGPT'ye \"beni öner\" demek işe yarar mı?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Kendi sohbetinizdeki cevap değişebilir, ama bunun başka kullanıcıların gördüğü cevabı değiştirdiğine dair bir dayanak yok. Kalıcı yol, sitenizi ve dışarıdaki bilgilerinizi güçlendirmektir."
+            "text": "Kendi sohbetinizdeki cevap değişebilir, ama bunun başka kullanıcıların gördüğü cevabı değiştirdiğine dair bir dayanak yok."
           }
         },
         {
@@ -104,15 +104,7 @@
           "name": "Düzeltmeler ne zaman etkisini gösterir?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "OpenAI, robots.txt değişikliğinin arama tarafına yansımasının yaklaşık 24 saat sürebileceğini söylüyor. İçerik ve dış bahsedilmelerin etkisi ise genellikle 2 ile 6 ay arasında görünür."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "ChatGPT'de çıkmayı garanti edebilir misiniz?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Hayır. Kimse sonucu garanti edemez. Biz aynı soruları düzenli olarak sorup sonucu ölçer, önce ve sonra tablosuyla raporlarız."
+            "text": "OpenAI, robots.txt değişikliğinin arama tarafına yansımasının yaklaşık 24 saat sürebileceğini söylüyor. İçerik ve dış bahsedilmelerin etkisi ise daha uzun sürer."
           }
         }
       ]
@@ -139,6 +131,8 @@
         <li><a href="../../#sss">SSS</a></li>
         <li><a href="../../hakkimizda/">Hakkımızda</a></li>
         <li><a href="../../blog/" aria-current="page">Blog</a></li>
+        <li><a href="../../musteri-yorumlari/">Müşteri Yorumları</a></li>
+        <li><a href="../../musteri-hizmetleri/">Müşteri Hizmetleri</a></li>
       </ul>
     </nav>
     <button class="theme-toggle" type="button" hidden aria-label="Temayı değiştir">
@@ -157,47 +151,43 @@
       <article class="yazi">
         <nav class="crumbs" aria-label="Sayfa yolu"><a href="../../">Ana sayfa</a> / <a href="../">Blog</a> / <span aria-current="page">ChatGPT işletmemi neden önermiyor?</span></nav>
         <h1>ChatGPT işletmemi neden önermiyor?</h1>
-        <p class="yazi-bilgi"><a href="../../hakkimizda/">Feyzullah Buran</a> · <time datetime="2026-11-01">1 Kasım 2026</time></p>
-        <p class="lead">ChatGPT işletmenizi önermiyorsa sebep genellikle şunlardan biridir: sitenize ulaşamıyordur, sitenizdeki bilgi soruya net cevap vermiyordur, başka sitelerde adınız yeterince geçmiyordur ya da tek bir denemeye bakıyorsunuzdur. Bunlar kesin kural değil, kontrol edilebilecek nedenlerdir.</p>
+        <p class="yazi-bilgi"><a href="../../hakkimizda/">Feyzullah Buran</a> · <time datetime="2026-10-29">29 Ekim 2026</time></p>
+        <p class="lead">ChatGPT işletmenizi önermiyorsa sebep çoğu zaman şunlardan biridir: sitenize ulaşamıyordur, sitenizdeki bilgi soruya net cevap vermiyordur, başka sitelerde adınız yeterince geçmiyordur ya da siz tek bir denemeye bakıyorsunuzdur. Bunların hepsini kendiniz kontrol edebilirsiniz.</p>
 
-        <h2>1. Önce doğru test edin</h2>
-        <p>Tek deneme yanıltır. <a href="https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/" target="_blank" rel="noopener">SparkToro araştırmasına</a> göre aynı soru 100 kez sorulsa bile ChatGPT'nin iki cevapta aynı marka listesini verme ihtimali yüzde 1'in altında. Müşterinizin soracağı 5-10 soruyu yazın, her birini birkaç kez sorun ve adınızın kaç cevapta geçtiğini not edin.</p>
-        <p>Cevapta kaynak bağlantısı olup olmadığına da bakın. Kaynak yoksa ChatGPT o cevapta arama yapmamış olabilir.</p>
+        <h2>Doğru test ettiniz mi?</h2>
+        <p>Bir kere sorup adınızı göremeyince moral bozmayın. <a href="https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/" target="_blank" rel="noopener">SparkToro'nun araştırmasına</a> göre aynı soru 100 kez sorulsa bile ChatGPT'nin iki cevapta aynı marka listesini verme ihtimali yüzde 1'in altında. Müşterinizin soracağı 5-10 soruyu yazın, her birini birkaç kez sorun, adınızın kaç cevapta geçtiğini not edin.</p>
+        <p>Cevabın altında kaynak bağlantısı var mı, ona da bakın. Kaynak yoksa ChatGPT o cevapta arama yapmamış olabilir.</p>
 
-        <h2>2. ChatGPT sitenize ulaşamıyor olabilir</h2>
-        <p>OpenAI, ChatGPT aramasında sitelerin görünmesini sağlayan tarayıcının OAI-SearchBot olduğunu ve bu tarayıcıyı engelleyen sitelerin <a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener">arama cevaplarında gösterilmeyeceğini</a> söylüyor. robots.txt dosyanızı kontrol edin. Hosting veya güvenlik duvarı ayarları da botu engelliyor olabilir.</p>
-        <p>GPTBot ayrı bir tarayıcıdır ve model eğitimi içindir. Onu engellemek, OAI-SearchBot'a izin verdiğiniz sürece aramada görünmenize engel değildir.</p>
+        <h2>ChatGPT sitenize girebiliyor mu?</h2>
+        <p>OpenAI'ın <a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener">belgesine</a> göre ChatGPT aramasında sitelerin görünmesini sağlayan tarayıcının adı OAI-SearchBot. Bu tarayıcıyı engellerseniz sayfalarınız arama cevaplarında gösterilmiyor. robots.txt dosyanıza bakın, hosting ve güvenlik duvarı ayarlarını da unutmayın, bazen dosya temizdir ama bot kapıdan döner. Hangi botun ne yaptığı için <a href="../yapay-zeka-botlari/">botlar yazısına</a> bakabilirsiniz.</p>
 
-        <h2>3. Sitenizde cevap yok</h2>
-        <p>"Kaliteli hizmet" gibi genel ifadeler soruya cevap vermez. Ne sattığınız, hangi şehirde ve kime hizmet verdiğiniz, nasıl çalıştığınız sayfada açıkça yazmalı. Müşterinin sorduğu her önemli soru için net bir cevap bulunmalı.</p>
+        <h2>Sitenizde bir cevap var mı?</h2>
+        <p>"Kaliteli hizmet", "müşteri memnuniyeti" gibi cümleler kimsenin sorusuna cevap vermiyor. Ne sattığınız, hangi şehirde ve kime hizmet verdiğiniz, nasıl çalıştığınız sayfada yazmalı. Bence en pratik yol şu: müşterilerin telefonda size sorduğu soruları bir kağıda yazın, sonra her birinin sitede düz bir cevabı var mı bakın.</p>
 
-        <h2>4. Başka sitelerde adınız geçmiyor</h2>
-        <p>Asistanlar birden çok kaynaktan cevap üretir. Sadece kendi sitenizde kendinizi anlatıyorsanız dışarıdan doğrulayan bir kaynak yoktur. Sektör rehberleri, yerel haber siteleri, müşteri yorumları ve iş ortaklarınızın siteleri bu boşluğu doldurur.</p>
+        <h2>Sizi sizden başka anlatan var mı?</h2>
+        <p>Asistanlar aslında birden çok kaynaktan cevap üretiyor. Yani sadece kendi sitenizde kendinizi anlatıyorsanız sizi dışarıdan doğrulayan bir kaynak yok demektir. Sektör rehberleri, yerel haber siteleri, müşteri yorumları, iş ortaklarınızın siteleri bu boşluğu dolduruyor.</p>
 
-        <h2>5. Bilgileriniz tutarsız olabilir</h2>
-        <p>İşletme adınız, adresiniz, telefonunuz sitede, Google İşletme Profili'nde ve sosyal medyada farklıysa yapay zeka bu bilgileri birleştirmekte zorlanabilir. Adınız başka bir firmaya benziyorsa risk daha da artar. Her yerde aynı adı ve aynı bilgileri kullanın.</p>
+        <h2>Bilgileriniz her yerde aynı mı?</h2>
+        <p>İşletme adınız, adresiniz, telefonunuz sitede, Google İşletme Profili'nde ve sosyal medyada farklıysa yapay zeka bu bilgileri birleştirmekte zorlanabilir. Adınız başka bir firmaya benziyorsa risk daha da artıyor.</p>
 
-        <h2>6. Sorunuz çok genel olabilir</h2>
-        <p>"En iyi avukat" gibi genel sorularda rekabet çok yüksektir. "Manisa'da iş hukuku avukatı" gibi müşterinizin gerçekten soracağı, daha belirli sorularla test edin. Küçük işletmelerin görünme şansı bu sorularda genellikle daha yüksektir.</p>
+        <h2>Sorunuz çok mu genel?</h2>
+        <p>"En iyi avukat" gibi sorularda rekabet çok yüksek. "Manisa'da iş hukuku avukatı" gibi müşterinizin gerçekten soracağı, daha belirli sorularla test edin. Küçük işletmenin şansı bence bu sorularda.</p>
 
-        <h2>Ne yapmalısınız?</h2>
+        <h2>Nereden başlamalı?</h2>
         <ol>
-          <li>5-10 soruluk bir liste çıkarın ve tekrar tekrar sorarak başlangıç durumunu kaydedin.</li>
+          <li>5-10 soruluk listenizi çıkarın, tekrar tekrar sorup başlangıç durumunu kaydedin.</li>
           <li>robots.txt ve güvenlik ayarlarınızı kontrol edin.</li>
           <li>Eksik soruları sitenizde net cevaplarla yayınlayın.</li>
           <li>İşletme bilgilerinizi her yerde eşitleyin.</li>
-          <li>Başka sitelerde adınızın geçmesi için çalışın.</li>
-          <li>Birkaç hafta sonra aynı soruları tekrar sorup karşılaştırın.</li>
+          <li>Birkaç hafta sonra aynı soruları sorup karşılaştırın.</li>
         </ol>
         <p>Konuya yeniyseniz <a href="../geo-nedir/">GEO nedir?</a> yazısından başlayabilirsiniz.</p>
 
         <h2>Sık sorulan sorular</h2>
         <h3>ChatGPT'ye "beni öner" demek işe yarar mı?</h3>
-        <p>Kendi sohbetinizdeki cevap değişebilir, ama bunun başka kullanıcıların gördüğü cevabı değiştirdiğine dair bir dayanak yok. Kalıcı yol, sitenizi ve dışarıdaki bilgilerinizi güçlendirmektir.</p>
+        <p>Kendi sohbetinizdeki cevap değişebilir, ama bunun başka kullanıcıların gördüğü cevabı değiştirdiğine dair bir dayanak yok.</p>
         <h3>Düzeltmeler ne zaman etkisini gösterir?</h3>
-        <p>OpenAI, robots.txt değişikliğinin arama tarafına yansımasının yaklaşık 24 saat sürebileceğini söylüyor. İçerik ve dış bahsedilmelerin etkisi ise genellikle 2 ile 6 ay arasında görünür.</p>
-        <h3>ChatGPT'de çıkmayı garanti edebilir misiniz?</h3>
-        <p>Hayır. Kimse sonucu garanti edemez. Biz aynı soruları düzenli olarak sorup sonucu ölçer, önce ve sonra tablosuyla raporlarız.</p>
+        <p>OpenAI, robots.txt değişikliğinin arama tarafına yansımasının yaklaşık 24 saat sürebileceğini söylüyor. İçerik ve dış bahsedilmelerin etkisi ise daha uzun sürer.</p>
 
         <h2>Kaynaklar</h2>
         <ul class="yazi-kaynak">
@@ -225,7 +215,7 @@
     <span class="logo-word footer-logo">geomit<span class="logo-dot" aria-hidden="true"></span></span>
     <span>© 2026 geomit</span>
     <span>GEO ve SEO hizmeti · Türkiye</span>
-    <span><a class="footer-link" href="../../hakkimizda/">Hakkımızda</a> · <a class="footer-link" href="../../blog/" aria-current="page">Blog</a></span>
+    <span><a class="footer-link" href="../../hakkimizda/">Hakkımızda</a> · <a class="footer-link" href="../../blog/" aria-current="page">Blog</a> · <a class="footer-link" href="../../musteri-yorumlari/">Müşteri Yorumları</a> · <a class="footer-link" href="../../musteri-hizmetleri/">Müşteri Hizmetleri</a></span>
     <span>Bu bir <a class="footer-link" href="https://www.hdbilisim.com/" rel="noopener">HD Bilişim</a> iştirakidir.</span>
   </div>
 </footer>

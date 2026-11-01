@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yapay zeka botlarını engellemeli miyim? | geomit</title>
+<meta name="description" content="Yapay zeka cevaplarında görünmek istiyorsanız arama botlarını açık tutun. Eğitim botları ayrı bir karar. OpenAI, Anthropic, Perplexity ve Google botlarının farkı.">
+<link rel="canonical" href="https://geomit.net/blog/yapay-zeka-botlari/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#001177">
+
+<!-- Sosyal medyada paylaşım önizlemesi -->
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="geomit">
+<meta property="og:title" content="Yapay zeka botlarını engellemeli miyim? | geomit">
+<meta property="og:description" content="Yapay zeka cevaplarında görünmek istiyorsanız arama botlarını açık tutun. Eğitim botları ayrı bir karar. OpenAI, Anthropic, Perplexity ve Google botlarının farkı.">
+<meta property="og:url" content="https://geomit.net/blog/yapay-zeka-botlari/">
+
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../style.css?v=20261101c">
+
+<!-- Kayıtlı tema tercihini sayfa çizilmeden uygula (yanıp sönmeyi önler) -->
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add("js");
+    try {
+      var t = localStorage.getItem("gm-theme");
+      if (t === "light" || t === "dark") d.setAttribute("data-theme", t);
+    } catch (e) {}
+    // Varsayılan palet "Kobalt Şafak" (mavi degrade); eski "Gece Lacivert" adresin sonuna ?palet=lacivert ekleyince
+    if (/[?&]palet=lacivert(&|$)/.test(location.search)) d.setAttribute("data-palette", "lacivert");
+  })();
+</script>
+<script src="../../main.js?v=20261101c" defer></script>
+
+<!-- Yapılandırılmış veri. SSS metni değişirse FAQPage'i de aynı metinle güncelle. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://geomit.net/blog/yapay-zeka-botlari/#yazi",
+      "headline": "Yapay zeka botlarını engellemeli miyim?",
+      "description": "Yapay zeka cevaplarında görünmek istiyorsanız arama botlarını açık tutun. Eğitim botları ayrı bir karar. OpenAI, Anthropic, Perplexity ve Google botlarının farkı.",
+      "url": "https://geomit.net/blog/yapay-zeka-botlari/",
+      "mainEntityOfPage": "https://geomit.net/blog/yapay-zeka-botlari/",
+      "datePublished": "2026-10-31",
+      "dateModified": "2026-10-31",
+      "inLanguage": "tr-TR",
+      "author": {
+        "@type": "Person",
+        "@id": "https://geomit.net/hakkimizda/#feyzullah-buran",
+        "name": "Feyzullah Buran"
+      },
+      "publisher": {
+        "@id": "https://geomit.net/#isletme"
+      },
+      "isPartOf": {
+        "@id": "https://geomit.net/blog/#blog"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana sayfa",
+          "item": "https://geomit.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://geomit.net/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Yapay zeka botlarını engellemeli miyim?",
+          "item": "https://geomit.net/blog/yapay-zeka-botlari/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "GPTBot'u engellersem ChatGPT'de görünmez miyim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Görünebilirsiniz. OpenAI'a göre her ayar bağımsız: GPTBot'u kapatıp OAI-SearchBot'u açık bırakırsanız ChatGPT aramasında görünmeye devam edebilirsiniz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Google-Extended'i kapatmak Google sıralamamı düşürür mü?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. Google, bu ayarın aramada yer almayı etkilemediğini ve sıralama sinyali olarak kullanılmadığını söylüyor."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<!-- ortak:ust -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="../../" aria-label="geomit ana sayfa">
+      <svg class="logo-mark" viewBox="2.8 5.2 40 40" width="30" height="30" aria-hidden="true"><path d="M35.79 23.57A14 14 0 1 1 24.43 12.21" fill="none" stroke="currentColor" stroke-width="6"/><rect x="31.6" y="7.4" width="9" height="9" rx="1.2" fill="var(--orange)"/></svg>
+      <span class="logo-word">geomit<span class="logo-dot" aria-hidden="true"></span></span>
+    </a>
+    <nav aria-label="Ana menü">
+      <ul class="nav">
+        <li><a href="../../#hizmetler">Hizmetler</a></li>
+        <li><a href="../../#surec">Süreç</a></li>
+        <li><a href="../../#sss">SSS</a></li>
+        <li><a href="../../hakkimizda/">Hakkımızda</a></li>
+        <li><a href="../../blog/" aria-current="page">Blog</a></li>
+        <li><a href="../../musteri-yorumlari/">Müşteri Yorumları</a></li>
+        <li><a href="../../musteri-hizmetleri/">Müşteri Hizmetleri</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" type="button" hidden aria-label="Temayı değiştir">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    </button>
+    <a class="btn btn-small" href="../../#iletisim">Teklif iste</a>
+  </div>
+</header>
+<!-- /ortak:ust -->
+
+<main id="icerik">
+
+  <section class="hero">
+    <div class="wrap">
+      <article class="yazi">
+        <nav class="crumbs" aria-label="Sayfa yolu"><a href="../../">Ana sayfa</a> / <a href="../">Blog</a> / <span aria-current="page">Yapay zeka botlarını engellemeli miyim?</span></nav>
+        <h1>Yapay zeka botlarını engellemeli miyim?</h1>
+        <p class="yazi-bilgi"><a href="../../hakkimizda/">Feyzullah Buran</a> · <time datetime="2026-10-31">31 Ekim 2026</time></p>
+        <p class="lead">Yapay zeka cevaplarında görünmek istiyorsanız arama için gelen botları engellemeyin. Model eğitimi için gelen botlar ayrı bir karar: onları kapatıp arama botlarını açık bırakabilirsiniz. Bu ikisi robots.txt dosyasında ayrı satırlarla yönetiliyor.</p>
+
+        <p>robots.txt, sitenizin kökünde duran ve tarayıcılara nereye girip nereye giremeyeceklerini söyleyen küçük bir metin dosyası. Yapay zeka çıkınca bu dosyaya yeni isimler eklendi ve kafalar karıştı. Çünkü bu botların hepsi aynı işi yapmıyor. Yeri geliyor model eğitmek için geliyor, yeri geliyor arama dizini oluşturmak için, yeri geliyor bir kullanıcı soru sorduğu için o anda sayfanıza bakıyor.</p>
+
+        <h2>Hangi bot ne için geliyor?</h2>
+        <div class="yazi-tablo">
+          <table>
+            <thead><tr><th scope="col">Bot</th><th scope="col">Ne için gelir?</th><th scope="col">Engellerseniz</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">OAI-SearchBot</th><td>ChatGPT aramasında siteleri göstermek</td><td>ChatGPT arama cevaplarında gösterilmezsiniz, yalnız yönlendirme bağlantısı olarak çıkabilirsiniz</td></tr>
+              <tr><th scope="row">GPTBot</th><td>OpenAI model eğitimi</td><td>İçeriğiniz eğitimde kullanılmasın demiş olursunuz, ChatGPT aramasını etkilemez</td></tr>
+              <tr><th scope="row">Claude-SearchBot</th><td>Claude'un arama sonuçlarını iyileştirmek</td><td>İçeriğiniz o dizine girmez, görünürlüğünüz azalabilir</td></tr>
+              <tr><th scope="row">Claude-User</th><td>Kullanıcı sorduğunda sayfayı getirmek</td><td>Claude içeriğinizi kullanıcıya getiremez</td></tr>
+              <tr><th scope="row">ClaudeBot</th><td>Anthropic model eğitimi</td><td>Gelecekteki içeriğiniz eğitim verisine girmez</td></tr>
+              <tr><th scope="row">PerplexityBot</th><td>Perplexity sonuçlarında siteleri göstermek</td><td>Perplexity, sonuçlarda görünmek için izin vermenizi öneriyor; botun model eğitiminde kullanılmadığını söylüyor</td></tr>
+              <tr><th scope="row">Google-Extended</th><td>Ayrı bir bot değil, Gemini eğitimi için kontrol satırı</td><td>Google Arama'daki yerinizi ve sıralamanızı etkilemez</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Bilgiler <a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener">OpenAI</a>, <a href="https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler" target="_blank" rel="noopener">Anthropic</a>, <a href="https://docs.perplexity.ai/guides/bots" target="_blank" rel="noopener">Perplexity</a> ve <a href="https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers" target="_blank" rel="noopener">Google</a> belgelerinden. Bir de kullanıcı adına çalışan ChatGPT-User ve Perplexity-User var. İkisi de bir kişinin isteğiyle geldiği için robots.txt kuralları onlara uygulanmayabiliyor.</p>
+
+        <h2>Dosyaya nasıl yazılır?</h2>
+        <p>Aramada görünmek isteyip eğitime kapatmak isteyen bir site şöyle yazar:</p>
+        <pre><code>User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Disallow: /</code></pre>
+        <p>OpenAI'a göre arama tarafındaki değişikliğin sistemlere yansıması yaklaşık 24 saat sürüyor. Anthropic de kuralın her alt alan adı için ayrı yazılması gerektiğini belirtiyor.</p>
+
+        <h2>Bence hangisi doğru?</h2>
+        <p>İşletmenize bağlı. Eğer sattığınız şey içeriğin kendisiyse, yani yayıncıysanız, kurs satıyorsanız, eğitime kapatmak mantıklı olabilir. Hizmet satan bir işletmede ise içeriğin amacı zaten bulunmak. Biz geomit.net'te hepsini açık bıraktık, çünkü bu site vitrinimiz.</p>
+
+        <h2>robots.txt'e bakmak yetmez</h2>
+        <p>Dosyanız temiz olabilir, ama güvenlik duvarı botu kapıda çeviriyor olabilir. Örneğin <a href="https://developers.cloudflare.com/bots/additional-configurations/block-ai-bots/" target="_blank" rel="noopener">Cloudflare</a> panelinde yapay zeka botlarını yöneten ayarlar var ve yeni alan adlarında varsayılanlar değişti. Hosting firmanızın güvenlik ayarlarına da bir bakın.</p>
+        <p>robots.txt bir kilit gibi çalışmaz, kurallara uyan bota verilen bir talimattır. Asıl sakladığınız bir bilgi varsa onu açık web'e koymayın.</p>
+
+        <h2>Sık sorulan sorular</h2>
+        <h3>GPTBot'u engellersem ChatGPT'de görünmez miyim?</h3>
+        <p>Görünebilirsiniz. OpenAI'a göre her ayar bağımsız: GPTBot'u kapatıp OAI-SearchBot'u açık bırakırsanız ChatGPT aramasında görünmeye devam edebilirsiniz.</p>
+        <h3>Google-Extended'i kapatmak Google sıralamamı düşürür mü?</h3>
+        <p>Hayır. Google, bu ayarın aramada yer almayı etkilemediğini ve sıralama sinyali olarak kullanılmadığını söylüyor.</p>
+
+        <h2>Kaynaklar</h2>
+        <ul class="yazi-kaynak">
+          <li><a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener">OpenAI: Overview of OpenAI Crawlers</a></li>
+          <li><a href="https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler" target="_blank" rel="noopener">Anthropic: Does Anthropic crawl data from the web?</a></li>
+          <li><a href="https://docs.perplexity.ai/guides/bots" target="_blank" rel="noopener">Perplexity: Perplexity Crawlers</a></li>
+          <li><a href="https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers" target="_blank" rel="noopener">Google: Common crawlers (Google-Extended)</a></li>
+          <li><a href="https://developers.cloudflare.com/bots/additional-configurations/block-ai-bots/" target="_blank" rel="noopener">Cloudflare: Block AI Bots</a></li>
+        </ul>
+
+        <div class="yazi-cta">
+          <p>robots.txt dosyanıza ve güvenlik ayarlarınıza birlikte bakalım.</p>
+          <div class="cta-row">
+            <a class="btn" href="../../#iletisim">Teklif iste
+              <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10h11m-4-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="btn btn-ghost" href="../../#hizmetler">Hizmetlerimiz</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<!-- ortak:alt -->
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <span class="logo-word footer-logo">geomit<span class="logo-dot" aria-hidden="true"></span></span>
+    <span>© 2026 geomit</span>
+    <span>GEO ve SEO hizmeti · Türkiye</span>
+    <span><a class="footer-link" href="../../hakkimizda/">Hakkımızda</a> · <a class="footer-link" href="../../blog/" aria-current="page">Blog</a> · <a class="footer-link" href="../../musteri-yorumlari/">Müşteri Yorumları</a> · <a class="footer-link" href="../../musteri-hizmetleri/">Müşteri Hizmetleri</a></span>
+    <span>Bu bir <a class="footer-link" href="https://www.hdbilisim.com/" rel="noopener">HD Bilişim</a> iştirakidir.</span>
+  </div>
+</footer>
+<!-- /ortak:alt -->
+
+</body>
+</html>

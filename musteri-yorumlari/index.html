@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Müşteri yorumları | geomit</title>
+<meta name="description" content="geomit müşteri yorumları. Yalnızca e-posta adresini doğrulayan kişilerin yorumları yayınlanır.">
+<link rel="canonical" href="https://geomit.net/musteri-yorumlari/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#001177">
+
+<!-- Sosyal medyada paylaşım önizlemesi -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="geomit">
+<meta property="og:title" content="Müşteri yorumları | geomit">
+<meta property="og:description" content="geomit müşteri yorumları. Yalnızca e-posta adresini doğrulayan kişilerin yorumları yayınlanır.">
+<meta property="og:url" content="https://geomit.net/musteri-yorumlari/">
+
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css?v=20261101c">
+
+<!-- Kayıtlı tema tercihini sayfa çizilmeden uygula (yanıp sönmeyi önler) -->
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add("js");
+    try {
+      var t = localStorage.getItem("gm-theme");
+      if (t === "light" || t === "dark") d.setAttribute("data-theme", t);
+    } catch (e) {}
+    // Varsayılan palet "Kobalt Şafak" (mavi degrade); eski "Gece Lacivert" adresin sonuna ?palet=lacivert ekleyince
+    if (/[?&]palet=lacivert(&|$)/.test(location.search)) d.setAttribute("data-palette", "lacivert");
+  })();
+</script>
+<script src="../main.js?v=20261101c" defer></script>
+
+<script src="../yorumlar.js?v=20261101c" defer></script>
+
+<!-- Yapılandırılmış veri -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://geomit.net/musteri-yorumlari/#sayfa",
+      "url": "https://geomit.net/musteri-yorumlari/",
+      "name": "Müşteri yorumları",
+      "inLanguage": "tr-TR",
+      "isPartOf": { "@id": "https://geomit.net/#site" },
+      "about": { "@id": "https://geomit.net/#isletme" },
+      "breadcrumb": { "@id": "https://geomit.net/musteri-yorumlari/#yol" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://geomit.net/musteri-yorumlari/#yol",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana sayfa", "item": "https://geomit.net/" },
+        { "@type": "ListItem", "position": 2, "name": "Müşteri yorumları", "item": "https://geomit.net/musteri-yorumlari/" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<!-- ortak:ust -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="../" aria-label="geomit ana sayfa">
+      <svg class="logo-mark" viewBox="2.8 5.2 40 40" width="30" height="30" aria-hidden="true"><path d="M35.79 23.57A14 14 0 1 1 24.43 12.21" fill="none" stroke="currentColor" stroke-width="6"/><rect x="31.6" y="7.4" width="9" height="9" rx="1.2" fill="var(--orange)"/></svg>
+      <span class="logo-word">geomit<span class="logo-dot" aria-hidden="true"></span></span>
+    </a>
+    <nav aria-label="Ana menü">
+      <ul class="nav">
+        <li><a href="../#hizmetler">Hizmetler</a></li>
+        <li><a href="../#surec">Süreç</a></li>
+        <li><a href="../#sss">SSS</a></li>
+        <li><a href="../hakkimizda/">Hakkımızda</a></li>
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="../musteri-yorumlari/" aria-current="page">Müşteri Yorumları</a></li>
+        <li><a href="../musteri-hizmetleri/">Müşteri Hizmetleri</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" type="button" hidden aria-label="Temayı değiştir">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    </button>
+    <a class="btn btn-small" href="../#iletisim">Teklif iste</a>
+  </div>
+</header>
+<!-- /ortak:ust -->
+
+<main id="icerik">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-text page-head">
+        <nav class="crumbs" aria-label="Sayfa yolu" data-reveal><a href="../">Ana sayfa</a> / <span aria-current="page">Müşteri yorumları</span></nav>
+        <h1 data-reveal>Müşteri yorumları</h1>
+        <p class="lead" data-reveal>Bu sayfada yalnızca e-posta adresini doğrulayan kişilerin yorumları yayınlanır. Her yorumu yayınlamadan önce okuruz. Olumsuz görüşler de yer alır; reklam, hakaret ve gerçek bir deneyime dayanmayan yorumlar yayınlanmaz.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="yorumlar" class="band">
+    <div class="wrap">
+      <h2 data-reveal>Yorumlar</h2>
+      <p class="yorum-bos" id="yorum-bos" data-reveal>Henüz yayınlanmış yorum yok. İlk yorumu siz yazabilirsiniz.</p>
+      <div class="yorum-listesi" id="yorum-listesi" hidden></div>
+    </div>
+  </section>
+
+  <section id="yorum-yaz">
+    <div class="wrap yorum-duzen">
+      <div class="yorum-bilgi" data-reveal>
+        <h2>Yorum yazın</h2>
+        <p class="lead">Yorumunuzun yayınlanması için e-posta adresinizi doğrulamanız gerekir.</p>
+        <ol class="yorum-adimlar">
+          <li>Formu doldurun.</li>
+          <li>E-postanıza gelen 6 haneli kodu girin.</li>
+          <li>Yorumunuzu okuduktan sonra yayınlarız.</li>
+        </ol>
+      </div>
+
+      <div class="yorum-kart" data-reveal>
+        <noscript><p class="form-durum">Yorum formu için JavaScript gerekir. Görüşünüzü <a href="mailto:merhaba@geomit.net">merhaba@geomit.net</a> adresine de yazabilirsiniz.</p></noscript>
+        <p class="form-durum" id="form-kapali" hidden>Yorum formu şu anda kapalı. Görüşünüzü <a href="mailto:merhaba@geomit.net">merhaba@geomit.net</a> adresine yazabilirsiniz.</p>
+
+        <form id="yorum-formu" class="form">
+          <label class="alan">Adınız soyadınız
+            <input type="text" name="ad" required minlength="2" maxlength="60" autocomplete="name">
+          </label>
+          <label class="alan">İşletmeniz <span class="alan-not">(isteğe bağlı)</span>
+            <input type="text" name="firma" maxlength="80" autocomplete="organization">
+          </label>
+          <label class="alan">E-posta adresiniz <span class="alan-not">(yayınlanmaz)</span>
+            <input type="email" name="eposta" required maxlength="120" autocomplete="email">
+          </label>
+          <fieldset class="alan puan">
+            <legend>Puanınız</legend>
+            <div class="puan-secenek">
+              <label><input type="radio" name="puan" value="1" required><span>1</span></label>
+              <label><input type="radio" name="puan" value="2"><span>2</span></label>
+              <label><input type="radio" name="puan" value="3"><span>3</span></label>
+              <label><input type="radio" name="puan" value="4"><span>4</span></label>
+              <label><input type="radio" name="puan" value="5"><span>5</span></label>
+            </div>
+          </fieldset>
+          <label class="alan">Yorumunuz
+            <textarea name="yorum" rows="5" required minlength="20" maxlength="1000"></textarea>
+          </label>
+          <!-- Tuzak alan: insan görmez, bot doldurursa yorum kaydedilmez -->
+          <label class="tuzak" aria-hidden="true">Web siteniz <input type="text" name="site" tabindex="-1" autocomplete="off"></label>
+          <label class="onay"><input type="checkbox" name="kvkk" value="1" required>
+            <span>E-posta adresim yalnızca onay kodu göndermek ve yorumumu doğrulamak için kullanılır, yayınlanmaz. Adımın, işletmemin ve yorumumun onaydan sonra bu sayfada görünmesini kabul ediyorum.</span>
+          </label>
+          <button class="btn" type="submit">Onay kodu gönder <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10h11m-4-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </form>
+
+        <form id="kod-formu" class="form" hidden>
+          <p>Onay kodunu <strong id="kod-adres"></strong> adresine gönderdik. Kod 15 dakika geçerli. Gelmediyse spam klasörüne bakın.</p>
+          <label class="alan">6 haneli kod
+            <input type="text" name="kod" required inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code">
+          </label>
+          <button class="btn" type="submit">Yorumu onayla <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10h11m-4-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </form>
+
+        <p class="form-durum" id="form-durum" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ortak:alt -->
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <span class="logo-word footer-logo">geomit<span class="logo-dot" aria-hidden="true"></span></span>
+    <span>© 2026 geomit</span>
+    <span>GEO ve SEO hizmeti · Türkiye</span>
+    <span><a class="footer-link" href="../hakkimizda/">Hakkımızda</a> · <a class="footer-link" href="../blog/">Blog</a> · <a class="footer-link" href="../musteri-yorumlari/" aria-current="page">Müşteri Yorumları</a> · <a class="footer-link" href="../musteri-hizmetleri/">Müşteri Hizmetleri</a></span>
+    <span>Bu bir <a class="footer-link" href="https://www.hdbilisim.com/" rel="noopener">HD Bilişim</a> iştirakidir.</span>
+  </div>
+</footer>
+<!-- /ortak:alt -->
+
+</body>
+</html>

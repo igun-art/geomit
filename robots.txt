@@ -1,6 +1,7 @@
 # Tüm arama motorları ve yapay zeka tarayıcıları siteyi tarayabilir.
 User-agent: *
 Allow: /
+Disallow: /api/
 
 # Yapay zeka tarayıcıları (açıkça izinli)
 User-agent: GPTBot

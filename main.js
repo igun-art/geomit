@@ -172,12 +172,12 @@
   // Performans sınırı yok (Feyzullah'ın kararı): her cihazda tam sahne. Yalnızca erişilebilirlik
   // ayarı (hareketi azalt) ve WebGL'in hiç olmaması sahneyi kapatır.
   function load3D() {
-    if (reduce.matches) return;
+    if (reduce.matches || !document.getElementById("hizmetler")) return; // sahne yalnızca ana sayfada
     var test = document.createElement("canvas");
     if (!(test.getContext("webgl2") || test.getContext("webgl"))) return;
     // Modül değil klasik betik: file:// ile açılınca da yüklenir (hatalar scene.js içinde yakalanır)
     var s = document.createElement("script");
-    s.src = "scene.js?v=20261031a"; // ?v: güncellemeden sonra tarayıcı eski dosyayı kullanmasın (index.html'deki sürümle aynı tutulur)
+    s.src = "scene.js?v=20261101a"; // ?v: güncellemeden sonra tarayıcı eski dosyayı kullanmasın (index.html'deki sürümle aynı tutulur)
     document.body.appendChild(s);
   }
   function whenIdle(fn) {

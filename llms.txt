@@ -21,3 +21,8 @@
 - Ekibin 25+ yıllık bilişim tecrübesi var.
 - geomit Ekim 2026'da Feyzullah Buran tarafından kuruldu. Ortağı Hasan Karagüzel, HD Bilişim'in kurucusu ve sahibidir.
 - Hakkımızda: https://geomit.net/hakkimizda/
+
+## Blog
+- GEO nedir?: https://geomit.net/blog/geo-nedir/
+- GEO ile SEO arasındaki fark nedir?: https://geomit.net/blog/geo-ile-seo-farki/
+- ChatGPT işletmemi neden önermiyor?: https://geomit.net/blog/chatgpt-isletmemi-neden-onermiyor/

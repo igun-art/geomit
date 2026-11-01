@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blog | geomit</title>
+<meta name="description" content="GEO, SEO ve yapay zeka aramaları üzerine, işletmelerin gerçekten sorduğu sorulara sade cevaplar.">
+<link rel="canonical" href="https://geomit.net/blog/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#001177">
+
+<!-- Sosyal medyada paylaşım önizlemesi -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="geomit">
+<meta property="og:title" content="Blog | geomit">
+<meta property="og:description" content="GEO, SEO ve yapay zeka aramaları üzerine, işletmelerin gerçekten sorduğu sorulara sade cevaplar.">
+<meta property="og:url" content="https://geomit.net/blog/">
+
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css?v=20261101b">
+
+<!-- Kayıtlı tema tercihini sayfa çizilmeden uygula (yanıp sönmeyi önler) -->
+<script>
+  (function () {
+    var d = document.documentElement;
+    d.classList.add("js");
+    try {
+      var t = localStorage.getItem("gm-theme");
+      if (t === "light" || t === "dark") d.setAttribute("data-theme", t);
+    } catch (e) {}
+    // Varsayılan palet "Kobalt Şafak" (mavi degrade); eski "Gece Lacivert" adresin sonuna ?palet=lacivert ekleyince
+    if (/[?&]palet=lacivert(&|$)/.test(location.search)) d.setAttribute("data-palette", "lacivert");
+  })();
+</script>
+<script src="../main.js?v=20261101b" defer></script>
+
+<!-- Yapılandırılmış veri. SSS metni değişirse FAQPage'i de aynı metinle güncelle. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Blog",
+      "@id": "https://geomit.net/blog/#blog",
+      "name": "geomit Blog",
+      "url": "https://geomit.net/blog/",
+      "inLanguage": "tr-TR",
+      "publisher": {
+        "@id": "https://geomit.net/#isletme"
+      },
+      "blogPost": [
+        {
+          "@id": "https://geomit.net/blog/geo-nedir/#yazi"
+        },
+        {
+          "@id": "https://geomit.net/blog/geo-ile-seo-farki/#yazi"
+        },
+        {
+          "@id": "https://geomit.net/blog/chatgpt-isletmemi-neden-onermiyor/#yazi"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ana sayfa",
+          "item": "https://geomit.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://geomit.net/blog/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<!-- ortak:ust -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="logo" href="../" aria-label="geomit ana sayfa">
+      <svg class="logo-mark" viewBox="2.8 5.2 40 40" width="30" height="30" aria-hidden="true"><path d="M35.79 23.57A14 14 0 1 1 24.43 12.21" fill="none" stroke="currentColor" stroke-width="6"/><rect x="31.6" y="7.4" width="9" height="9" rx="1.2" fill="var(--orange)"/></svg>
+      <span class="logo-word">geomit<span class="logo-dot" aria-hidden="true"></span></span>
+    </a>
+    <nav aria-label="Ana menü">
+      <ul class="nav">
+        <li><a href="../#hizmetler">Hizmetler</a></li>
+        <li><a href="../#surec">Süreç</a></li>
+        <li><a href="../#sss">SSS</a></li>
+        <li><a href="../hakkimizda/">Hakkımızda</a></li>
+        <li><a href="../blog/" aria-current="page">Blog</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" type="button" hidden aria-label="Temayı değiştir">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    </button>
+    <a class="btn btn-small" href="../#iletisim">Teklif iste</a>
+  </div>
+</header>
+<!-- /ortak:ust -->
+
+<main id="icerik">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-text page-head">
+        <nav class="crumbs" aria-label="Sayfa yolu" data-reveal><a href="../">Ana sayfa</a> / <span aria-current="page">Blog</span></nav>
+        <h1 data-reveal>Blog</h1>
+        <p class="lead" data-reveal>GEO, SEO ve yapay zeka aramaları üzerine, işletmelerin gerçekten sorduğu sorulara sade cevaplar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="yazilar" class="band">
+    <div class="wrap">
+      <div class="blog-list">
+        <article class="compare-col post-card" data-reveal>
+          <time class="post-date" datetime="2026-11-01">1 Kasım 2026</time>
+          <h2><a href="geo-nedir/">GEO nedir?</a></h2>
+          <p>Yapay zeka cevaplarında görünmenin ne demek olduğu, neyin işe yaradığı ve sonucun nasıl ölçüldüğü.</p>
+        </article>
+        <article class="compare-col post-card" data-reveal>
+          <time class="post-date" datetime="2026-11-01">1 Kasım 2026</time>
+          <h2><a href="geo-ile-seo-farki/">GEO ile SEO arasındaki fark nedir?</a></h2>
+          <p>İkisi neyi hedefler, nerede ayrılır ve bir işletme hangisinden başlamalı?</p>
+        </article>
+        <article class="compare-col post-card" data-reveal>
+          <time class="post-date" datetime="2026-11-01">1 Kasım 2026</time>
+          <h2><a href="chatgpt-isletmemi-neden-onermiyor/">ChatGPT işletmemi neden önermiyor?</a></h2>
+          <p>En sık nedenler ve her birini nasıl kontrol edeceğiniz.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ortak:alt -->
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <span class="logo-word footer-logo">geomit<span class="logo-dot" aria-hidden="true"></span></span>
+    <span>© 2026 geomit</span>
+    <span>GEO ve SEO hizmeti · Türkiye</span>
+    <span><a class="footer-link" href="../hakkimizda/">Hakkımızda</a> · <a class="footer-link" href="../blog/" aria-current="page">Blog</a></span>
+    <span>Bu bir <a class="footer-link" href="https://www.hdbilisim.com/" rel="noopener">HD Bilişim</a> iştirakidir.</span>
+  </div>
+</footer>
+<!-- /ortak:alt -->
+
+</body>
+</html>

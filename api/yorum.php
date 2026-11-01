@@ -5,6 +5,8 @@
    Veritabanı yok: tek JSON dosyası (api/veri/). Dosya .php uzantılı ve ilk satırı exit olduğu için
    adresle açılsa bile içeriği görünmez; ayrıca klasörde erişim yasağı (.htaccess) var.
    E-posta adresi yayınlanmaz, yorum doğrulandıktan sonra yalnızca özeti (HMAC) saklanır.
+   Sunucuda mail() kapalı olduğu için posta SMTP ile gider; ayarlar yalnızca sunucudaki api/veri/smtp.php
+   içinde durur (örnek: api/smtp-ornek.php), parola depoya girmez.
    PHP 7.0 ve üstüyle çalışır, ek paket gerekmez. */
 
 require __DIR__ . '/ayar.php';
@@ -15,6 +17,9 @@ define('VERI_DOSYASI', VERI_KLASORU . '/kayitlar.php');
 define('GIZLI_DOSYASI', VERI_KLASORU . '/gizli.php');
 define('KILIT_DOSYASI', VERI_KLASORU . '/kilit');
 define('KORUMA', "<?php exit; ?>\n");
+if (is_file(VERI_KLASORU . '/smtp.php')) {
+    require VERI_KLASORU . '/smtp.php';
+}
 
 header('X-Content-Type-Options: nosniff');
 header('X-Robots-Tag: noindex, nofollow');
@@ -117,7 +122,94 @@ function temizle(&$veri) {
     }
 }
 
+function smtp_ayarli() {
+    return defined('SMTP_SUNUCU') && defined('SMTP_KULLANICI') && defined('SMTP_PAROLA');
+}
+
+// Komutu yollar, yanıtı okur. Çok satırlı yanıtta satırın 4. karakteri "-" olur.
+function smtp_komut($s, $komut, $beklenen, $adim) {
+    if ($komut !== null) {
+        fwrite($s, $komut . "\r\n");
+    }
+    $yanit = '';
+    do {
+        $satir = fgets($s, 1024);
+        $yanit .= (string) $satir;
+    } while ($satir !== false && isset($satir[3]) && $satir[3] === '-');
+    if ((int) substr($yanit, 0, 3) !== $beklenen) {
+        throw new Exception($adim . ': ' . substr(trim($yanit), 0, 120));
+    }
+    return $yanit;
+}
+
+function smtp_baglan() {
+    if (!function_exists('stream_socket_client')) {
+        throw new Exception('soket: sunucuda kapalı');
+    }
+    $port = defined('SMTP_PORT') ? (int) SMTP_PORT : 587;
+    $yerel = in_array(SMTP_SUNUCU, array('localhost', '127.0.0.1'), true);
+    // Aynı sunucuya bağlanırken trafik dışarı çıkmaz ve sertifika adı tutmaz, doğrulama yalnızca uzak sunucuda
+    $baglam = stream_context_create(array('ssl' => array('verify_peer' => !$yerel, 'verify_peer_name' => !$yerel)));
+    $adres = ($port === 465 ? 'ssl://' : 'tcp://') . SMTP_SUNUCU . ':' . $port;
+    $s = @stream_socket_client($adres, $no, $neden, 10, STREAM_CLIENT_CONNECT, $baglam);
+    if (!$s) {
+        throw new Exception('baglanti: ' . $neden);
+    }
+    stream_set_timeout($s, 15);
+    $alan = parse_url(SITE_ADRESI, PHP_URL_HOST);
+    smtp_komut($s, null, 220, 'karsilama');
+    $ozellik = smtp_komut($s, 'EHLO ' . $alan, 250, 'ehlo');
+    if ($port !== 465) {
+        if (stripos($ozellik, 'STARTTLS') !== false) {
+            smtp_komut($s, 'STARTTLS', 220, 'starttls');
+            if (!@stream_socket_enable_crypto($s, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+                throw new Exception('starttls: şifreli bağlantı kurulamadı');
+            }
+            smtp_komut($s, 'EHLO ' . $alan, 250, 'ehlo');
+        } elseif (!$yerel) {
+            throw new Exception('starttls: sunucu şifreli bağlantı sunmuyor'); // Parola düz metin gitmesin
+        }
+    }
+    smtp_komut($s, 'AUTH LOGIN', 334, 'kimlik');
+    smtp_komut($s, base64_encode(SMTP_KULLANICI), 334, 'kimlik');
+    smtp_komut($s, base64_encode(SMTP_PAROLA), 235, 'kimlik');
+    return $s;
+}
+
+function smtp_gonder($alici, $konu, $govde) {
+    // From, giriş yapılan kutuyla aynı olmalı; sunucu aksi halde reddedebilir
+    $ileti = 'Date: ' . date('r') . "\r\n"
+        . 'From: ' . GONDEREN_AD . ' <' . SMTP_KULLANICI . ">\r\n"
+        . 'Reply-To: ' . GONDEREN_EPOSTA . "\r\n"
+        . 'To: <' . $alici . ">\r\n"
+        . 'Subject: =?UTF-8?B?' . base64_encode($konu) . "?=\r\n"
+        . 'Message-ID: <' . bin2hex(random_bytes(12)) . '@' . parse_url(SITE_ADRESI, PHP_URL_HOST) . ">\r\n"
+        . "MIME-Version: 1.0\r\n"
+        . "Content-Type: text/plain; charset=UTF-8\r\n"
+        . "Content-Transfer-Encoding: base64\r\n\r\n"
+        . chunk_split(base64_encode($govde));
+    try {
+        $s = smtp_baglan();
+        smtp_komut($s, 'MAIL FROM:<' . SMTP_KULLANICI . '>', 250, 'gonderen');
+        smtp_komut($s, 'RCPT TO:<' . $alici . '>', 250, 'alici');
+        smtp_komut($s, 'DATA', 354, 'veri');
+        smtp_komut($s, $ileti . '.', 250, 'veri');
+        fwrite($s, "QUIT\r\n");
+        fclose($s);
+        return true;
+    } catch (Exception $e) {
+        error_log('geomit smtp: ' . strtok($e->getMessage(), ':')); // Yalnızca adım: yanıtta e-posta adresi olabilir
+        return false;
+    }
+}
+
 function eposta_gonder($alici, $konu, $govde) {
+    if (smtp_ayarli()) {
+        return smtp_gonder($alici, $konu, $govde);
+    }
+    if (!function_exists('mail')) {
+        return false;
+    }
     $basliklar = 'From: ' . GONDEREN_AD . ' <' . GONDEREN_EPOSTA . ">\r\n"
         . 'Reply-To: ' . GONDEREN_EPOSTA . "\r\n"
         . "MIME-Version: 1.0\r\n"
@@ -181,7 +273,7 @@ function kod_gonder() {
     $govde = "Merhaba,\n\ngeomit müşteri yorumu onay kodunuz: " . $sonuc['kodMetni']
         . "\n\nKod 15 dakika geçerlidir. Bu işlemi siz yapmadıysanız e-postayı dikkate almayın.\n\ngeomit\n" . SITE_ADRESI . "\n";
     if (!eposta_gonder($sonuc['eposta'], 'geomit yorum onay kodu', $govde)) {
-        hata('Onay kodu gönderilemedi. Lütfen daha sonra tekrar deneyin.', 502);
+        hata('Onay kodu gönderilemedi. Lütfen daha sonra tekrar deneyin.', 503); // Cloudflare 502'nin metnini değiştirir
     }
     cevap(array('ok' => true, 'id' => $sonuc['id']));
 }
@@ -283,14 +375,34 @@ function karar() {
         . '<blockquote>' . html_kacis($y['yorum']) . '</blockquote>' . $form);
 }
 
+// Posta göndermeden SMTP girişini dener; kurulumda sorunun hangi adımda olduğunu gösterir
+function smtp_kontrol() {
+    if (!smtp_ayarli()) {
+        cevap(array('ok' => false, 'adim' => 'ayar yok'));
+    }
+    $hak = kilitli(function (&$veri) { return hak_var_mi($veri, 'smtp-kontrol', 10); });
+    if (!$hak) {
+        hata('Çok fazla deneme yapıldı. Bir saat sonra tekrar deneyin.', 429);
+    }
+    try {
+        $s = smtp_baglan();
+        fwrite($s, "QUIT\r\n");
+        fclose($s);
+    } catch (Exception $e) {
+        cevap(array('ok' => false, 'adim' => $e->getMessage()));
+    }
+    cevap(array('ok' => true));
+}
+
 /* ---------- Yönlendirme ---------- */
 $islem = isset($_REQUEST['islem']) ? (string) $_REQUEST['islem'] : '';
 $yontem = $_SERVER['REQUEST_METHOD'];
 
 if ($yontem === 'GET' && $islem === 'durum') {
     klasor_hazirla();
-    cevap(array('ok' => true, 'yazilabilir' => is_writable(VERI_KLASORU), 'mail' => function_exists('mail')));
+    cevap(array('ok' => true, 'yazilabilir' => is_writable(VERI_KLASORU), 'mail' => function_exists('mail'), 'smtp' => smtp_ayarli()));
 }
+if ($yontem === 'GET' && $islem === 'smtp-kontrol') { smtp_kontrol(); }
 if ($yontem === 'GET' && $islem === 'liste') { liste(); }
 if ($islem === 'karar') { klasor_hazirla(); karar(); }
 if ($yontem === 'POST' && izinli_kaynak_mi()) {
